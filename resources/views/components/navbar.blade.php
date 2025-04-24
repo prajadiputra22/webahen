@@ -19,13 +19,13 @@
                 aria-current="page">About Us</a>
               <a href="/products"
                 class="rounded-md px-3 py-2 text-sm {{ request()->is('products') ? 'font-bold text-amber-500' : 'font-medium text-gray-950 hover:bg-gray-100 hover:text-gray-900' }}"
-                aria-current="page">Our Products</a>
+                aria-current="page">Products</a>
               <a href="/posts"
                 class="rounded-md px-3 py-2 text-sm {{ request()->is('posts') ? 'font-bold text-amber-500' : 'font-medium text-gray-950 hover:bg-gray-100 hover:text-gray-900' }}"
                 aria-current="page">Blog</a>
               <a href="/contact"
                 class="rounded-md px-3 py-2 text-sm {{ request()->is('contact') ? 'font-bold text-amber-500' : 'font-medium text-gray-950 hover:bg-gray-100 hover:text-gray-900' }}"
-                aria-current="page">Contact Us</a>
+                aria-current="page">Contact</a>
             </div>
           </div>
           <div class="hidden md:flex items-center space-x-4">
@@ -71,13 +71,13 @@
                 aria-current="page">About Us</a>
           <a href="/products"
                 class="block rounded-md px-3 py-2 text-base {{ request()->is('products') ? 'bg-gray-100 font-bold text-amber-500' : 'font-medium text-gray-950 hover:bg-gray-100 hover:text-gray-900' }}"
-                aria-current="page">Our Products</a>
+                aria-current="page">Products</a>
           <a href="/posts"
                 class="block rounded-md px-3 py-2 text-base {{ request()->is('posts') ? 'bg-gray-100 font-bold text-amber-500' : 'font-medium text-gray-950 hover:bg-gray-100 hover:text-gray-900' }}"
                 aria-current="page">Blog</a>
           <a href="/contact"
                 class="block rounded-md px-3 py-2 text-base {{ request()->is('contact') ? 'bg-gray-100 font-bold text-amber-500' : 'font-medium text-gray-950 hover:bg-gray-100 hover:text-gray-900' }}"
-                aria-current="page">Contact Us</a>
+                aria-current="page">Contact</a>
         </div>
         <div class="border-t border-gray-200 pt-4 pb-3 px-4">
           <div class="flex space-x-4">
