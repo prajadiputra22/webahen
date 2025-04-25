@@ -25,10 +25,17 @@ class AdminDashboardController extends Controller
             'tittle' => 'required|max:255',
             'author' => 'required|max:255',
             'body' => 'required',
-            'image' => 'nullable|url',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
 
         $validated['slug'] = Str::slug($validated['tittle']);
+        
+        // Handle image upload
+        if ($request->hasFile('image')) {
+            $image = $request->file('image');
+            $imageData = base64_encode(file_get_contents($image));
+            $validated['image'] = $imageData;
+        }
 
         Post::create($validated);
 
@@ -46,11 +53,21 @@ class AdminDashboardController extends Controller
             'tittle' => 'required|max:255',
             'author' => 'required|max:255',
             'body' => 'required',
-            'image' => 'nullable|url',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
 
         if ($post->tittle !== $validated['tittle']) {
             $validated['slug'] = Str::slug($validated['tittle']);
+        }
+        
+        // Handle image upload
+        if ($request->hasFile('image')) {
+            $image = $request->file('image');
+            $imageData = base64_encode(file_get_contents($image));
+            $validated['image'] = $imageData;
+        } else {
+            // Keep the existing image if no new one is uploaded
+            unset($validated['image']);
         }
 
         $post->update($validated);

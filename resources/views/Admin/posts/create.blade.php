@@ -41,9 +41,16 @@
 
             <div class="mb-6">
                 <label for="body" class="block text-gray-700 text-sm font-bold mb-2">Content</label>
+                <div class="mb-2 text-sm text-gray-600">
+                    <span class="font-medium">Format teks:</span> 
+                    <button type="button" onclick="insertTag('strong')" class="px-2 py-1 bg-gray-200 rounded hover:bg-gray-300 mr-1">Bold</button>
+                    <button type="button" onclick="insertTag('em')" class="px-2 py-1 bg-gray-200 rounded hover:bg-gray-300 mr-1">Italic</button>
+                    <button type="button" onclick="insertTag('u')" class="px-2 py-1 bg-gray-200 rounded hover:bg-gray-300 mr-1">Underline</button>
+                    <button type="button" onclick="insertTag('h2')" class="px-2 py-1 bg-gray-200 rounded hover:bg-gray-300 mr-1">Heading</button>
+                </div>
                 <textarea name="body" id="body" rows="10" required
                     class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline @error('body') border-red-500 @enderror">{{ old('body') }}</textarea>
-                <p class="text-gray-500 text-xs mt-1">You can use HTML tags for formatting</p>
+                <p class="text-gray-500 text-xs mt-1">Anda dapat menggunakan tag HTML untuk format teks: &lt;strong&gt;teks tebal&lt;/strong&gt;, &lt;em&gt;teks miring&lt;/em&gt;, dll.</p>
                 @error('body')
                     <p class="text-red-500 text-xs italic mt-1">{{ $message }}</p>
                 @enderror
@@ -59,4 +66,21 @@
             </div>
         </form>
     </div>
+
+    <script>
+        function insertTag(tag) {
+            const textarea = document.getElementById('body');
+            const start = textarea.selectionStart;
+            const end = textarea.selectionEnd;
+            const selectedText = textarea.value.substring(start, end);
+            const replacement = `<${tag}>${selectedText}</${tag}>`;
+            
+            textarea.value = textarea.value.substring(0, start) + replacement + textarea.value.substring(end);
+            
+            // Atur kursor setelah tag yang disisipkan
+            const newCursorPos = start + replacement.length;
+            textarea.focus();
+            textarea.setSelectionRange(newCursorPos, newCursorPos);
+        }
+    </script>
 @endsection

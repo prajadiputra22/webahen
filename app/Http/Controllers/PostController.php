@@ -38,20 +38,12 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        // Remove the image from the request data for validation
-        $requestData = $request->all();
-        $imageFile = null;
-        
-        if ($request->hasFile('image')) {
-            $imageFile = $request->file('image');
-            unset($requestData['image']);
-        }
-        
-        // Validate everything except the image
+        // Validate the request
         $request->validate([
             'tittle' => 'required|max:255',
             'author' => 'required|max:255',
             'body' => 'required',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
         
         // Create a new post
@@ -62,17 +54,12 @@ class PostController extends Controller
         $post->slug = Str::slug($request->tittle);
         
         // Handle the image file if it exists
-        if ($imageFile) {
-            // Validate that it's an image
-            if ($imageFile->isValid() && in_array($imageFile->getClientOriginalExtension(), ['jpg', 'jpeg', 'png', 'gif'])) {
-                // Upload the file
-                $imagePath = $imageFile->store('posts', 'public');
-                
-                // Generate a URL for the uploaded file
-                $imageUrl = asset('storage/' . $imagePath);
-                
-                // Store the URL in the database
-                $post->image = $imageUrl;
+        if ($request->hasFile('image')) {
+            $image = $request->file('image');
+            if ($image->isValid()) {
+                // Convert image to base64 string
+                $imageData = base64_encode(file_get_contents($image));
+                $post->image = $imageData;
             }
         }
         
@@ -112,20 +99,12 @@ class PostController extends Controller
      */
     public function update(Request $request, Post $post)
     {
-        // Remove the image from the request data for validation
-        $requestData = $request->all();
-        $imageFile = null;
-        
-        if ($request->hasFile('image')) {
-            $imageFile = $request->file('image');
-            unset($requestData['image']);
-        }
-        
-        // Validate everything except the image
+        // Validate the request
         $request->validate([
             'tittle' => 'required|max:255',
             'author' => 'required|max:255',
             'body' => 'required',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
         
         // Update the post
@@ -135,29 +114,12 @@ class PostController extends Controller
         $post->slug = Str::slug($request->tittle);
         
         // Handle the image file if it exists
-        if ($imageFile) {
-            // Validate that it's an image
-            if ($imageFile->isValid() && in_array($imageFile->getClientOriginalExtension(), ['jpg', 'jpeg', 'png', 'gif'])) {
-                // Try to delete the old image if it exists
-                $oldImageUrl = $post->image;
-                if ($oldImageUrl) {
-                    $storageUrl = asset('storage/');
-                    if (strpos($oldImageUrl, $storageUrl) === 0) {
-                        $oldImagePath = str_replace($storageUrl . '/', '', $oldImageUrl);
-                        if (Storage::disk('public')->exists($oldImagePath)) {
-                            Storage::disk('public')->delete($oldImagePath);
-                        }
-                    }
-                }
-                
-                // Upload the new file
-                $imagePath = $imageFile->store('posts', 'public');
-                
-                // Generate a URL for the uploaded file
-                $imageUrl = asset('storage/' . $imagePath);
-                
-                // Store the URL in the database
-                $post->image = $imageUrl;
+        if ($request->hasFile('image')) {
+            $image = $request->file('image');
+            if ($image->isValid()) {
+                // Convert image to base64 string
+                $imageData = base64_encode(file_get_contents($image));
+                $post->image = $imageData;
             }
         }
         

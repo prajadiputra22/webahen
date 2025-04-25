@@ -18,7 +18,7 @@
         }
 
         .post-content p {
-            margin-bottom: 2rem;
+            margin-bottom: 1.5rem;
             text-align: justify;
         }
 
@@ -125,10 +125,17 @@
                             </div>
 
                             <!-- Featured Image -->
-                            <div class="w-full mb-8">
+                            <div class="w-full mb-7">
                                 @if ($post->image)
-                                    <img src="{{ $post->image }}" alt="{{ $post->tittle }}"
-                                        class="w-full h-auto rounded-lg">
+                                    @if(strpos($post->image, 'http') === 0)
+                                        <!-- Untuk gambar lama yang masih berupa URL -->
+                                        <img src="{{ $post->image }}" alt="{{ $post->tittle }}"
+                                            class="w-full h-auto rounded-lg">
+                                    @else
+                                        <!-- Untuk gambar baru yang disimpan sebagai base64 -->
+                                        <img src="data:image/jpeg;base64,{{ $post->image }}" alt="{{ $post->tittle }}"
+                                            class="w-full h-auto rounded-lg">
+                                    @endif
                                 @else
                                     <img src="https://source.unsplash.com/random/1200x600/?wordpress"
                                         alt="{{ $post->tittle }}" class="w-full h-auto rounded-lg">
@@ -137,7 +144,7 @@
 
                             <!-- Post Content -->
                             <div class="post-content text-gray-800">
-                                {!! $post->body !!}
+                                {!! nl2br($post->body) !!}
                             </div>
                             <div class="mb-16"></div>
                         </div>
@@ -178,6 +185,9 @@
 
         <!-- Footer -->
         <x-footer></x-footer>
+
+        <!-- Komponen Chat WhatsApp -->
+        <x-chat></x-chat>
     </div>
 
     <script>

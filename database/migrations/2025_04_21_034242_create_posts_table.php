@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('tittle');
             $table->string('author');
-            $table->string('featured_image')->nullable();
+            $table->longText('image')->nullable(); // Diubah dari string menjadi longText
             $table->string('slug')->unique();
             $table->text('body');
             $table->timestamps();

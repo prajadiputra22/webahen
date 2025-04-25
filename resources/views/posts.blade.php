@@ -40,7 +40,7 @@
         <x-navbar></x-navbar>
 
         <!-- Search Bar - Positioned below navbar with proper spacing -->
-        <div class="bg-gray-100 py-6 border-b border-gray-200">
+        <div class="bg-gray-200 py-6 border-b border-gray-300">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="relative max-w-md mx-auto">
                     <form action="/posts" method="GET">
@@ -55,7 +55,7 @@
         </div>
 
         <!-- Main Content -->
-        <main class="bg-gray-100 py-8">
+        <main class="bg-gray-200 py-8">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <!-- Blog Posts Grid -->
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -65,7 +65,13 @@
                                 <a href="/posts/{{ $post->slug }}">
                                     <div class="blog-image overflow-hidden h-48">
                                         @if($post->image)
-                                            <img src="{{ $post->image }}" alt="{{ $post->tittle }}" class="w-full h-full object-cover">
+                                            @if(strpos($post->image, 'http') === 0)
+                                                <!-- Untuk gambar lama yang masih berupa URL -->
+                                                <img src="{{ $post->image }}" alt="{{ $post->tittle }}" class="w-full h-full object-cover">
+                                            @else
+                                                <!-- Untuk gambar baru yang disimpan sebagai base64 -->
+                                                <img src="data:image/jpeg;base64,{{ $post->image }}" alt="{{ $post->tittle }}" class="w-full h-full object-cover">
+                                            @endif
                                         @else
                                             <img src="https://source.unsplash.com/random/800x600/?blog" alt="{{ $post->tittle }}" class="w-full h-full object-cover">
                                         @endif
@@ -108,26 +114,6 @@
                 </div>
             </div>
         </main>
-
-        <!-- Newsletter Section -->
-        <section class="bg-amber-500 py-16">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-center">
-                    <h2 class="text-3xl font-bold text-white">Subscribe to Our <span
-                            class="text-gray-900">Newsletter</span></h2>
-                    <p class="mt-4 text-xl text-white/90 max-w-2xl mx-auto">Stay updated with our latest news, recipes,
-                        and special offers</p>
-                    <form class="mt-8 max-w-md mx-auto flex">
-                        <input type="email" placeholder="Your Email Address" required
-                            class="flex-grow px-4 py-3 rounded-l-full focus:outline-none focus:ring-2 focus:ring-amber-300">
-                        <button type="submit"
-                            class="bg-gray-900 hover:bg-gray-800 text-white px-6 py-3 rounded-r-full font-medium transition-colors">
-                            Subscribe
-                        </button>
-                    </form>
-                </div>
-            </div>
-        </section>
 
         <!-- Footer -->
         <x-footer></x-footer>
