@@ -72,12 +72,12 @@
                         </div>
                         <div class="space-y-8 flex flex-col justify-center">
                             <h2 class="text-3xl font-bold text-gray-900">Our <span class="text-amber-500">Story</span></h2>
-                            <p class="text-gray-700 text-lg leading-relaxed">
+                            <p class="text-gray-700 text-lg leading-relaxed text-justify">
                                 Sugar Ahen is a leading exporter of premium coconut sugar products from Indonesia.
                                 We work directly with local farmers to ensure sustainable farming practices and
                                 the highest quality products for our international customers.
                             </p>
-                            <p class="text-gray-700 text-lg leading-relaxed">
+                            <p class="text-gray-700 text-lg leading-relaxed text-justify">
                                 Our commitment to quality, sustainability, and fair trade has made us a trusted
                                 partner for food manufacturers, distributors, and retailers worldwide.
                             </p>
@@ -92,13 +92,13 @@
         <div class="grid grid-cols-1 md:grid-cols-2 gap-14">
             <div class="space-y-8 order-2 md:order-1 flex flex-col justify-center">
                 <h2 class="text-3xl font-bold text-gray-900">Our <span class="text-amber-500">Mission</span></h2>
-                <p class="text-gray-700 text-lg leading-relaxed">
+                <p class="text-gray-700 text-lg leading-relaxed text-justify">
                     At Sugar Ahen, our mission is to provide the highest quality coconut sugar products
                     while supporting sustainable farming practices and improving the livelihoods of
                     local farmers in Indonesia.
                 </p>
                 <h2 class="text-3xl font-bold text-gray-900 mt-10">Our <span class="text-amber-500">Vision</span></h2>
-                <p class="text-gray-700 text-lg leading-relaxed">
+                <p class="text-gray-700 text-lg leading-relaxed text-justify">
                     We envision a world where natural, sustainable sweeteners are the preferred choice
                     for consumers and manufacturers, contributing to better health outcomes and
                     environmental sustainability.
@@ -106,7 +106,7 @@
             </div>
             <div class="order-1 md:order-2 flex items-center justify-center md:justify-end">
                 <div class="rounded-xl overflow-hidden shadow-xl h-full flex items-center w-full md:w-11/12">
-                    <img src="/img/coconutsugar.jpeg" alt="Coconut Sugar Farmers" class="w-full object-cover max-h-[400px]">
+                    <img src="/img/pabrik.jpg" alt="Coconut Sugar Farmers" class="w-full object-cover max-h-[400px]">
                 </div>
             </div>
         </div>
@@ -168,6 +168,8 @@
 
         <!-- Footer -->
         <x-footer> </x-footer>
+        <!-- Komponen Chat WhatsApp -->
+        <x-chat></x-chat>
     </div>
 
     <script>

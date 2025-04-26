@@ -94,7 +94,7 @@
                         <div class="bg-white rounded-xl overflow-hidden shadow-md product-card">
                             <div class="md:flex">
                                 <div class="md:w-2/5">
-                                    <img src="https://via.placeholder.com/400x300" alt="Granulated Coconut Sugar" class="w-full h-full object-cover">
+                                    <img src="/img/palmsugar.jpeg" alt="Granulated Coconut Sugar" class="w-full h-full object-cover">
                                 </div>
                                 <div class="p-6 md:w-3/5">
                                     <h3 class="text-2xl font-bold text-gray-900 mb-3">Granulated Coconut Sugar</h3>
@@ -119,10 +119,10 @@
                                             Available in various grain sizes
                                         </li>
                                     </ul>
-                                    <a href="#" class="inline-flex items-center text-amber-500 font-medium hover:text-amber-600 transition-colors">
+                                    {{-- <a href="#" class="inline-flex items-center text-amber-500 font-medium hover:text-amber-600 transition-colors">
                                         <span>View Details</span>
                                         <i class="fas fa-chevron-right ml-2"></i>
-                                    </a>
+                                    </a> --}}
                                 </div>
                             </div>
                         </div>
@@ -131,7 +131,7 @@
                         <div class="bg-white rounded-xl overflow-hidden shadow-md product-card">
                             <div class="md:flex">
                                 <div class="md:w-2/5">
-                                    <img src="https://via.placeholder.com/400x300" alt="Coconut Sugar Blocks" class="w-full h-full object-cover">
+                                    <img src="/img/coconutsugar.jpeg" alt="Coconut Sugar Blocks" class="w-full h-full object-cover">
                                 </div>
                                 <div class="p-6 md:w-3/5">
                                     <h3 class="text-2xl font-bold text-gray-900 mb-3">Coconut Sugar Blocks</h3>
@@ -156,10 +156,10 @@
                                             Available in various sizes
                                         </li>
                                     </ul>
-                                    <a href="#" class="inline-flex items-center text-amber-500 font-medium hover:text-amber-600 transition-colors">
+                                    {{-- <a href="#" class="inline-flex items-center text-amber-500 font-medium hover:text-amber-600 transition-colors">
                                         <span>View Details</span>
                                         <i class="fas fa-chevron-right ml-2"></i>
-                                    </a>
+                                    </a> --}}
                                 </div>
                             </div>
                         </div>
@@ -168,7 +168,7 @@
                         <div class="bg-white rounded-xl overflow-hidden shadow-md product-card">
                             <div class="md:flex">
                                 <div class="md:w-2/5">
-                                    <img src="https://via.placeholder.com/400x300" alt="Liquid Coconut Sugar" class="w-full h-full object-cover">
+                                    <img src="/img/liquidsugar.jpeg" alt="Liquid Coconut Sugar" class="w-full h-full object-cover">
                                 </div>
                                 <div class="p-6 md:w-3/5">
                                     <h3 class="text-2xl font-bold text-gray-900 mb-3">Liquid Coconut Sugar</h3>
@@ -193,10 +193,10 @@
                                             Available in various packaging options
                                         </li>
                                     </ul>
-                                    <a href="#" class="inline-flex items-center text-amber-500 font-medium hover:text-amber-600 transition-colors">
+                                    {{-- <a href="#" class="inline-flex items-center text-amber-500 font-medium hover:text-amber-600 transition-colors">
                                         <span>View Details</span>
                                         <i class="fas fa-chevron-right ml-2"></i>
-                                    </a>
+                                    </a> --}}
                                 </div>
                             </div>
                         </div>
@@ -230,10 +230,10 @@
                                             Fully traceable supply chain
                                         </li>
                                     </ul>
-                                    <a href="#" class="inline-flex items-center text-amber-500 font-medium hover:text-amber-600 transition-colors">
+                                    {{-- <a href="#" class="inline-flex items-center text-amber-500 font-medium hover:text-amber-600 transition-colors">
                                         <span>View Details</span>
                                         <i class="fas fa-chevron-right ml-2"></i>
-                                    </a>
+                                    </a> --}}
                                 </div>
                             </div>
                         </div>
@@ -282,19 +282,19 @@
                     </div>
                     <div class="grid grid-cols-2 sm:grid-cols-4 gap-6">
                         <div class="bg-white rounded-xl p-6 text-center shadow-md certification-card">
-                            <img src="https://via.placeholder.com/150x150" alt="Organic Certification" class="w-24 h-24 mx-auto mb-4">
+                            <img src="img\certificate\usda.jpeg" alt="Organic Certification" class="w-24 h-24 mx-auto mb-4">
                             <h3 class="text-lg font-bold text-gray-900">USDA Organic</h3>
                         </div>
                         <div class="bg-white rounded-xl p-6 text-center shadow-md certification-card">
-                            <img src="https://via.placeholder.com/150x150" alt="EU Organic" class="w-24 h-24 mx-auto mb-4">
+                            <img src="img\certificate\eu.png" alt="EU Organic" class="w-24 h-24 mx-auto mb-4">
                             <h3 class="text-lg font-bold text-gray-900">EU Organic</h3>
                         </div>
                         <div class="bg-white rounded-xl p-6 text-center shadow-md certification-card">
                             <img src="https://via.placeholder.com/150x150" alt="Kosher" class="w-24 h-24 mx-auto mb-4">
-                            <h3 class="text-lg font-bold text-gray-900">Kosher Certified</h3>
+                            <h3 class="text-lg font-bold text-gray-900">BPOM Certified</h3>
                         </div>
                         <div class="bg-white rounded-xl p-6 text-center shadow-md certification-card">
-                            <img src="https://via.placeholder.com/150x150" alt="Halal" class="w-24 h-24 mx-auto mb-4">
+                            <img src="img\certificate\halal.jpeg" alt="Halal" class="w-24 h-24 mx-auto mb-4">
                             <h3 class="text-lg font-bold text-gray-900">Halal Certified</h3>
                         </div>
                     </div>
@@ -317,6 +317,8 @@
 
         <!-- Footer -->
         <x-footer></x-footer>
+        <!-- Komponen Chat WhatsApp -->
+        <x-chat></x-chat>
     </div>
 
     <script>

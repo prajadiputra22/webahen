@@ -65,7 +65,7 @@
         <!-- Page Banner -->
         <div class="bg-amber-500 py-20 pb-7">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4">Contact <span class="text-gray-900">Us</span></h1>
+                <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4">Contact Us</h1>
                 <p class="text-xl text-white max-w-3xl mx-auto">Get in touch with our team</p>
             </div>
         </div>
@@ -80,25 +80,23 @@
                                 <i class="fas fa-map-marker-alt text-amber-500 text-2xl"></i>
                             </div>
                             <h3 class="text-xl font-bold text-gray-900 mb-3">Our Address</h3>
-                            <p class="text-gray-600">Jl. Raya Sukabumi No. 123</p>
-                            <p class="text-gray-600">Bandung, West Java</p>
-                            <p class="text-gray-600">Indonesia 40123</p>
+                            <p class="text-gray-600">Jl. Baros No. 123</p>
+                            <p class="text-gray-600">Sukabumi City, West Java</p>
+                            <p class="text-gray-600">Indonesia 43166</p>
                         </div>
                         <div class="bg-white rounded-xl p-8 text-center shadow-md contact-card">
                             <div class="w-16 h-16 bg-amber-100 rounded-full flex items-center justify-center mx-auto mb-6">
                                 <i class="fas fa-phone-alt text-amber-500 text-2xl"></i>
                             </div>
                             <h3 class="text-xl font-bold text-gray-900 mb-3">Phone Number</h3>
-                            <p class="text-gray-600">+62 123 4567 890</p>
-                            <p class="text-gray-600">+62 098 7654 321</p>
+                            <p class="text-gray-600">+62 812 9513 3302</p>
                         </div>
                         <div class="bg-white rounded-xl p-8 text-center shadow-md contact-card">
                             <div class="w-16 h-16 bg-amber-100 rounded-full flex items-center justify-center mx-auto mb-6">
                                 <i class="fas fa-envelope text-amber-500 text-2xl"></i>
                             </div>
                             <h3 class="text-xl font-bold text-gray-900 mb-3">Email Address</h3>
-                            <p class="text-gray-600">info@sugarahen.com</p>
-                            <p class="text-gray-600">sales@sugarahen.com</p>
+                            <p class="text-gray-600">sugarahen75@gmail.com</p>
                         </div>
                     </div>
                 </div>
@@ -165,7 +163,27 @@
                         </div>
                         <div>
                             <div class="bg-white rounded-xl overflow-hidden shadow-md mb-6">
-                                <img src="https://via.placeholder.com/600x500" alt="Map Location" class="w-full h-64 object-cover">
+                                <div class="relative w-full h-64">
+                                    <iframe 
+                                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d991.2358839845774!2d106.93328159999999!3d-6.956091199999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e684700683526c1%3A0x6844a2d270f9252a!2sWARUNG%20KMS!5e0!3m2!1sen!2sid!4v1714132000000!5m2!1sen!2sid" 
+                                        width="100%" 
+                                        height="100%" 
+                                        style="border:0; position: absolute; top: 0; left: 0; width: 100%; height: 100%;" 
+                                        allowfullscreen="" 
+                                        loading="lazy" 
+                                        referrerpolicy="no-referrer-when-downgrade">
+                                    </iframe>
+                                    <div class="absolute bottom-2 left-2 bg-white px-2 py-1 text-xs rounded shadow">
+                                        <a href="https://www.google.com/maps/place/WARUNG+KMS/@-6.9559581,106.9336625,18z/data=!4m6!3m5!1s0x2e684700683526c1:0x6844a2d270f9252a!8m2!3d-6.9560912!4d106.9332816!16s%2Fg%2F11x0_2j4z3" target="_blank" class="text-blue-600 hover:text-blue-800">
+                                            View larger map
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="p-3 bg-amber-50 text-center">
+                                    <a href="https://www.google.com/maps/place/WARUNG+KMS/@-6.9559581,106.9336625,18z/data=!4m6!3m5!1s0x2e684700683526c1:0x6844a2d270f9252a!8m2!3d-6.9560912!4d106.9332816!16s%2Fg%2F11x0_2j4z3" target="_blank" class="text-amber-500 hover:text-amber-600 font-medium flex items-center justify-center">
+                                        <i class="fas fa-directions mr-2"></i> Get Directions
+                                    </a>
+                                </div>
                             </div>
                             <div class="bg-white rounded-xl p-6 shadow-md">
                                 <h3 class="text-xl font-bold text-gray-900 mb-4">Business Hours</h3>
@@ -262,6 +280,8 @@
 
         <!-- Footer -->
         <x-footer></x-footer>
+        <!-- Komponen Chat WhatsApp -->
+        <x-chat></x-chat>
     </div>
 
     <script>

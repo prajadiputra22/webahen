@@ -79,7 +79,7 @@
                                     <div class="p-6">
                                         <h3 class="text-xl font-bold mb-2 text-gray-900">{{ $post->tittle }}</h3>
                                         <p class="text-sm text-gray-600 mb-4">
-                                            By {{ $post->author }} 
+                                            {{ $post->author }} 
                                             @if($post->created_at)
                                                 · {{ $post->created_at->format('M d, Y') }}
                                             @endif
@@ -117,6 +117,8 @@
 
         <!-- Footer -->
         <x-footer></x-footer>
+        <!-- Komponen Chat WhatsApp -->
+        <x-chat></x-chat>
     </div>
 
     <script>

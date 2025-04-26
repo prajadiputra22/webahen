@@ -39,9 +39,21 @@
         </header>
 
         <div class="flex flex-1">
+            <!-- Sidebar Backdrop - closes sidebar when clicked -->
+            <div 
+                x-show="sidebarOpen" 
+                @click="sidebarOpen = false" 
+                class="fixed inset-0 bg-black bg-opacity-50 z-20 md:hidden transition-opacity duration-300 ease-in-out">
+            </div>
             <!-- Sidebar -->
             <div :class="{'translate-x-0': sidebarOpen, '-translate-x-full': !sidebarOpen}" class="fixed inset-y-0 left-0 z-30 w-64 bg-white shadow transform transition-transform duration-300 ease-in-out md:translate-x-0 md:static md:inset-auto">
                 <div class="flex flex-col h-full">
+                    <!-- Close button - only visible on mobile -->
+                    <div class="flex justify-end p-4 md:hidden">
+                        <button @click="sidebarOpen = false" class="text-gray-500 hover:text-gray-700 focus:outline-none">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
                     <div class="overflow-y-auto flex-grow">
                         <nav class="px-4 py-4">
                             <a href="{{ route('admin.dashboard') }}" class="flex items-center py-2 px-4 text-gray-700 rounded hover:bg-gray-100 {{ request()->routeIs('admin.dashboard') ? 'bg-gray-100' : '' }}">
