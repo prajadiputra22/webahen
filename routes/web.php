@@ -5,6 +5,7 @@ use App\Models\User;
 use App\Models\Category;
 use App\Http\Controllers\AdminAuthController;
 use App\Http\Controllers\AdminDashboardController;
+use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
 
 // Public Routes
@@ -26,6 +27,9 @@ Route::get('/posts', function () {
     return view('posts', ['title' => 'Blog', 'posts' => $posts]);
 });
 
+// Add real-time search route
+Route::get('/posts/search', [PostController::class, 'search'])->name('posts.search');
+
 Route::get('/posts/{post:slug}', function (Post $post) {
     return view('post', ['title' => 'Single Post', 'post' => $post]);
 });
@@ -33,6 +37,12 @@ Route::get('/posts/{post:slug}', function (Post $post) {
 Route::get('/contact', function () {
     return view('contact');
 });
+
+// Add this line to your existing routes
+Route::post('/contact/send', [App\Http\Controllers\ContactController::class, 'send'])->name('contact.send');
+
+// Add this test route (you can remove it after testing)
+Route::get('/test-email', [App\Http\Controllers\ContactController::class, 'testEmail']);
 
 // Admin Authentication Routes
 Route::middleware('guest:admin')->group(function () {

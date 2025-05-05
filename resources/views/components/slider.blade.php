@@ -18,7 +18,7 @@
             </p>
           </div>
           <div class="mt-8">
-            <a href="/products" class="inline-block px-8 py-3 bg-white text-amber-600 font-bold rounded-full hover:bg-gray-100 transition-colors">
+            <a href="/contact#contactForm" class="inline-block px-8 py-3 bg-white text-amber-600 font-bold rounded-full hover:bg-gray-100 transition-colors">
               Order Now
             </a>
           </div>

@@ -45,14 +45,14 @@ class PostController extends Controller
             'body' => 'required',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
-        
+
         // Create a new post
         $post = new Post();
         $post->tittle = $request->tittle;
         $post->author = $request->author;
         $post->body = $request->body;
         $post->slug = Str::slug($request->tittle);
-        
+
         // Handle the image file if it exists
         if ($request->hasFile('image')) {
             $image = $request->file('image');
@@ -62,9 +62,9 @@ class PostController extends Controller
                 $post->image = $imageData;
             }
         }
-        
+
         $post->save();
-        
+
         return redirect()->route('admin.dashboard')->with('success', 'Post created successfully!');
     }
 
@@ -106,13 +106,13 @@ class PostController extends Controller
             'body' => 'required',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
-        
+
         // Update the post
         $post->tittle = $request->tittle;
         $post->author = $request->author;
         $post->body = $request->body;
         $post->slug = Str::slug($request->tittle);
-        
+
         // Handle the image file if it exists
         if ($request->hasFile('image')) {
             $image = $request->file('image');
@@ -122,9 +122,9 @@ class PostController extends Controller
                 $post->image = $imageData;
             }
         }
-        
+
         $post->save();
-        
+
         return redirect()->route('admin.dashboard')->with('success', 'Post updated successfully!');
     }
 
@@ -147,9 +147,40 @@ class PostController extends Controller
                 }
             }
         }
-        
+
         $post->delete();
-        
+
         return redirect()->route('admin.dashboard')->with('success', 'Post deleted successfully!');
+    }
+
+    /**
+     * Search for posts based on query.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function search(Request $request)
+    {
+        $query = $request->input('q');
+
+        $posts = Post::query();
+
+        if ($query) {
+            $posts = $posts->where('tittle', 'LIKE', $query . '%')
+                ->orWhere('body', 'LIKE', $query . '%')
+                ->orWhere('author', 'LIKE', $query . '%');
+        }
+
+        $posts = $posts->latest()->get();
+
+        $posts = $posts->map(function ($post) {
+            $post->excerpt = Str::limit(strip_tags($post->body), 100);
+            $post->time_ago = $post->created_at ? $post->created_at->diffForHumans() : 'Recently';
+            return $post;
+        });
+
+        return response()->json([
+            'posts' => $posts,
+        ]);
     }
 }

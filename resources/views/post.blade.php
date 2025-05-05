@@ -79,8 +79,22 @@
 
 <body class="h-full">
 
-    <div class="min-h-full">
-        <!-- Static Navbar (non-sticky) -->
+    <div class="min-h-full" x-data="{
+        lastScrollTop: 0,
+        showNavbar: true,
+        handleScroll() {
+            let st = window.pageYOffset || document.documentElement.scrollTop;
+            if (st > this.lastScrollTop && st > 100) {
+                // Scrolling down
+                this.showNavbar = false;
+            } else {
+                // Scrolling up
+                this.showNavbar = true;
+            }
+            this.lastScrollTop = st <= 0 ? 0 : st;
+        }
+    }" x-init="window.addEventListener('scroll', () => handleScroll())">
+        <!-- Sticky Navbar -->
         <x-navbar></x-navbar>
 
         <!-- Main Content -->

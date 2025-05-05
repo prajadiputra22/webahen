@@ -40,6 +40,7 @@
             transform: rotate(180deg);
         }
     </style>
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 </head>
 
 <body class="h-full">
@@ -62,19 +63,31 @@
         <!-- Sticky Navbar -->
         <x-navbar></x-navbar>
 
-        <!-- Page Banner -->
-        <div class="bg-amber-500 py-20 pb-7">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4">Contact Us</h1>
-                <p class="text-xl text-white max-w-3xl mx-auto">Get in touch with our team</p>
-            </div>
-        </div>
-
-        <main class="relative z-10 bg-white">
+        <main class="relative z-10 bg-white mt-10">
             <!-- Contact Information -->
             <section class="py-16">
                 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="text-center">
+                        <h2 class="text-4xl font-bold text-gray-900">Contact <span class="text-amber-500">Sugarahen</span></h2>
+                        <p class="mt-4 text-gray-600 max-w-3xl mx-auto">
+                            Get in touch with Sugarahen for premium coconut and palm sugar products
+                            tailored to your global needs.We proudly offer sustainably sourced sugar
+                            made from the finest Indonesian coconut and palm sap.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <section class=" py-5 border-b border-gray-150">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12">
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                        <div class="bg-white rounded-xl p-8 text-center shadow-md contact-card">
+                            <div class="w-16 h-16 bg-amber-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                                <i class="fas fa-envelope text-amber-500 text-2xl"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-900 mb-3">Email Address</h3>
+                            <p class="text-gray-600">ahensugar75@gmail.com</p>
+                        </div>
                         <div class="bg-white rounded-xl p-8 text-center shadow-md contact-card">
                             <div class="w-16 h-16 bg-amber-100 rounded-full flex items-center justify-center mx-auto mb-6">
                                 <i class="fas fa-map-marker-alt text-amber-500 text-2xl"></i>
@@ -91,20 +104,13 @@
                             <h3 class="text-xl font-bold text-gray-900 mb-3">Phone Number</h3>
                             <p class="text-gray-600">+62 812 9513 3302</p>
                         </div>
-                        <div class="bg-white rounded-xl p-8 text-center shadow-md contact-card">
-                            <div class="w-16 h-16 bg-amber-100 rounded-full flex items-center justify-center mx-auto mb-6">
-                                <i class="fas fa-envelope text-amber-500 text-2xl"></i>
-                            </div>
-                            <h3 class="text-xl font-bold text-gray-900 mb-3">Email Address</h3>
-                            <p class="text-gray-600">sugarahen75@gmail.com</p>
-                        </div>
                     </div>
                 </div>
             </section>
 
             <!-- Contact Form Section -->
-            <section class="py-16 bg-gray-50">
-                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <section class="py-16 border-b border-gray-150" id="contact-form-section">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 ">
                     <div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
                         <div class="bg-white rounded-xl p-8 shadow-md">
                             <div class="mb-8">
@@ -113,35 +119,45 @@
                                     Fill out the form below to get in touch with our team. We'll respond to your inquiry as soon as possible.
                                 </p>
                             </div>
-                            <form>
+                            
+                            <div id="form-response" class="mb-6 hidden">
+                                <!-- Response messages will be inserted here by JavaScript -->
+                            </div>
+
+                            <form id="contactForm">
+                                @csrf
                                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                                     <div>
                                         <label for="name" class="block text-sm font-medium text-gray-700 mb-2">Your Name</label>
-                                        <input type="text" id="name" placeholder="Enter your name" required
-                                            class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-amber-500 focus:border-amber-500">
+                                        <input type="text" id="name" name="name" placeholder="Enter your name" required
+                                            class="w-full px-4 py-2 border rounded-md focus:ring-amber-500 focus:border-amber-500 border-gray-300">
+                                        <p class="mt-1 text-sm text-red-600 hidden" id="name-error"></p>
                                     </div>
                                     <div>
                                         <label for="email" class="block text-sm font-medium text-gray-700 mb-2">Your Email</label>
-                                        <input type="email" id="email" placeholder="Enter your email" required
-                                            class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-amber-500 focus:border-amber-500">
+                                        <input type="email" id="email" name="email" placeholder="Enter your email" required
+                                            class="w-full px-4 py-2 border rounded-md focus:ring-amber-500 focus:border-amber-500 border-gray-300">
+                                        <p class="mt-1 text-sm text-red-600 hidden" id="email-error"></p>
                                     </div>
                                 </div>
                                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                                     <div>
                                         <label for="phone" class="block text-sm font-medium text-gray-700 mb-2">Phone Number</label>
-                                        <input type="tel" id="phone" placeholder="Enter your phone number"
-                                            class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-amber-500 focus:border-amber-500">
+                                        <input type="tel" id="phone" name="phone" placeholder="Enter your phone number"
+                                            class="w-full px-4 py-2 border rounded-md focus:ring-amber-500 focus:border-amber-500 border-gray-300">
+                                        <p class="mt-1 text-sm text-red-600 hidden" id="phone-error"></p>
                                     </div>
                                     <div>
                                         <label for="subject" class="block text-sm font-medium text-gray-700 mb-2">Subject</label>
-                                        <input type="text" id="subject" placeholder="Enter subject"
-                                            class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-amber-500 focus:border-amber-500">
+                                        <input type="text" id="subject" name="subject" placeholder="Enter subject"
+                                            class="w-full px-4 py-2 border rounded-md focus:ring-amber-500 focus:border-amber-500 border-gray-300">
+                                        <p class="mt-1 text-sm text-red-600 hidden" id="subject-error"></p>
                                     </div>
                                 </div>
                                 <div class="mb-6">
                                     <label for="product" class="block text-sm font-medium text-gray-700 mb-2">Product Interest</label>
-                                    <select id="product" required
-                                        class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-amber-500 focus:border-amber-500">
+                                    <select id="product" name="product" required
+                                        class="w-full px-4 py-2 border rounded-md focus:ring-amber-500 focus:border-amber-500 border-gray-300">
                                         <option value="" disabled selected>Select a product</option>
                                         <option value="granulated">Granulated Coconut Sugar</option>
                                         <option value="blocks">Coconut Sugar Blocks</option>
@@ -149,21 +165,42 @@
                                         <option value="organic">Organic Certified Sugar</option>
                                         <option value="other">Other Products</option>
                                     </select>
+                                    <p class="mt-1 text-sm text-red-600 hidden" id="product-error"></p>
                                 </div>
                                 <div class="mb-6">
                                     <label for="message" class="block text-sm font-medium text-gray-700 mb-2">Your Message</label>
-                                    <textarea id="message" placeholder="Enter your message" rows="6" required
-                                        class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-amber-500 focus:border-amber-500"></textarea>
+                                    <textarea id="message" name="message" placeholder="Enter your message" rows="6" required
+                                        class="w-full px-4 py-2 border rounded-md focus:ring-amber-500 focus:border-amber-500 border-gray-300"></textarea>
+                                    <p class="mt-1 text-sm text-red-600 hidden" id="message-error"></p>
                                 </div>
                                 <button type="submit" 
                                     class="inline-flex items-center px-6 py-3 bg-amber-500 hover:bg-amber-600 text-white font-medium rounded-md transition-colors">
-                                    Send Message
+                                    <span id="submitText">Send Message</span>
+                                    <span id="loadingIcon" class="hidden ml-2">
+                                        <svg class="animate-spin h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                            <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                                            <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                                        </svg>
+                                    </span>
                                 </button>
                             </form>
                         </div>
                         <div>
-                            <div class="bg-white rounded-xl overflow-hidden shadow-md mb-6">
-                                <div class="relative w-full h-64">
+                            <div class="bg-white rounded-xl p-6 shadow-md mb-6">
+                                <h3 class="text-xl font-bold text-gray-900 mb-4">Business Hours</h3>
+                                <ul class="space-y-3">
+                                    <li class="flex justify-between">
+                                        <span class="font-medium text-gray-700">Monday - Saturday:</span>
+                                        <span class="text-gray-600">9:00 AM - 4:00 PM</span>
+                                    </li>
+                                    <li class="flex justify-between">
+                                        <span class="font-medium text-gray-700">Sunday:</span>
+                                        <span class="text-gray-600">Closed</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="bg-white rounded-xl overflow-hidden shadow-md">
+                                <div class="relative w-full h-[580px]">
                                     <iframe 
                                         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d991.2358839845774!2d106.93328159999999!3d-6.956091199999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e684700683526c1%3A0x6844a2d270f9252a!2sWARUNG%20KMS!5e0!3m2!1sen!2sid!4v1714132000000!5m2!1sen!2sid" 
                                         width="100%" 
@@ -185,30 +222,13 @@
                                     </a>
                                 </div>
                             </div>
-                            <div class="bg-white rounded-xl p-6 shadow-md">
-                                <h3 class="text-xl font-bold text-gray-900 mb-4">Business Hours</h3>
-                                <ul class="space-y-3">
-                                    <li class="flex justify-between">
-                                        <span class="font-medium text-gray-700">Monday - Friday:</span>
-                                        <span class="text-gray-600">9:00 AM - 5:00 PM</span>
-                                    </li>
-                                    <li class="flex justify-between">
-                                        <span class="font-medium text-gray-700">Saturday:</span>
-                                        <span class="text-gray-600">9:00 AM - 1:00 PM</span>
-                                    </li>
-                                    <li class="flex justify-between">
-                                        <span class="font-medium text-gray-700">Sunday:</span>
-                                        <span class="text-gray-600">Closed</span>
-                                    </li>
-                                </ul>
-                            </div>
                         </div>
                     </div>
                 </div>
             </section>
 
             <!-- FAQ Section -->
-            <section class="py-16 bg-white" x-data="{
+            <section class="py-16" x-data="{
                 activeItem: null,
                 toggleItem(index) {
                     this.activeItem = this.activeItem === index ? null : index;
@@ -287,6 +307,95 @@
     <script>
         // Set current year in footer
         document.getElementById('current-year').textContent = new Date().getFullYear();
+        
+        // AJAX form submission
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault(); // Prevent default form submission
+            
+            // Show loading indicator
+            document.getElementById('submitText').textContent = 'Sending...';
+            document.getElementById('loadingIcon').classList.remove('hidden');
+            
+            // Reset previous error messages
+            document.querySelectorAll('.text-red-600').forEach(el => {
+                el.classList.add('hidden');
+                el.textContent = '';
+            });
+            
+            // Reset input borders
+            document.querySelectorAll('input, select, textarea').forEach(el => {
+                el.classList.remove('border-red-500');
+                el.classList.add('border-gray-300');
+            });
+            
+            // Get form data
+            const formData = new FormData(this);
+            
+            // Send AJAX request
+            fetch('{{ route('contact.send') }}', {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
+                    'X-Requested-With': 'XMLHttpRequest'
+                }
+            })
+            .then(response => response.json())
+            .then(data => {
+                // Hide loading indicator
+                document.getElementById('submitText').textContent = 'Send Message';
+                document.getElementById('loadingIcon').classList.add('hidden');
+                
+                const responseElement = document.getElementById('form-response');
+                responseElement.classList.remove('hidden');
+                
+                if (data.success) {
+                    // Show success message
+                    responseElement.className = 'mb-6 p-4 bg-green-50 border border-green-200 text-green-700 rounded-md';
+                    responseElement.innerHTML = data.message;
+                    
+                    // Reset form
+                    document.getElementById('contactForm').reset();
+                } else {
+                    // Show error message
+                    responseElement.className = 'mb-6 p-4 bg-red-50 border border-red-200 text-red-700 rounded-md';
+                    responseElement.innerHTML = data.message || 'There was a problem sending your message. Please try again later.';
+                    
+                    // Show validation errors if any
+                    if (data.errors) {
+                        Object.keys(data.errors).forEach(field => {
+                            const errorElement = document.getElementById(field + '-error');
+                            if (errorElement) {
+                                errorElement.textContent = data.errors[field][0];
+                                errorElement.classList.remove('hidden');
+                            }
+                            
+                            const inputElement = document.getElementById(field);
+                            if (inputElement) {
+                                inputElement.classList.remove('border-gray-300');
+                                inputElement.classList.add('border-red-500');
+                            }
+                        });
+                    }
+                }
+                
+                // Scroll to response message (but stay in the form section)
+                responseElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            })
+            .catch(error => {
+                // Hide loading indicator
+                document.getElementById('submitText').textContent = 'Send Message';
+                document.getElementById('loadingIcon').classList.add('hidden');
+                
+                // Show error message
+                const responseElement = document.getElementById('form-response');
+                responseElement.classList.remove('hidden');
+                responseElement.className = 'mb-6 p-4 bg-red-50 border border-red-200 text-red-700 rounded-md';
+                responseElement.innerHTML = 'There was a problem connecting to the server. Please try again later.';
+                
+                console.error('Error:', error);
+            });
+        });
     </script>
 </body>
 

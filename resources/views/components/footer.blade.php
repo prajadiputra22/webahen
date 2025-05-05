@@ -6,17 +6,17 @@
             <div>
               <h3 class="text-xl font-bold mb-4">Sugar<span class="text-amber-500">Ahen</span></h3>
               <p class="text-gray-600 mb-6">
-                Premium coconut sugar exporter from Indonesia, providing high-quality products to customers worldwide.
+                Premium coconut and palm sugar exporter from Indonesia, providing high-quality products to customers worldwide.
               </p>
               <div class="flex space-x-4">
-                <a href="#" class="text-gray-500 hover:text-gray-800">
+                <a href="https://www.facebook.com/profile.php?id=61575351231690&locale=id_ID" class="text-gray-500 hover:text-gray-800">
                   <i class="fab fa-facebook-f"></i>
                 </a>
-                <a href="#" class="text-gray-500 hover:text-gray-800">
+                <a href="https://www.instagram.com/sugarahen_/" class="text-gray-500 hover:text-gray-800">
                   <i class="fab fa-instagram"></i>
                 </a>
-                <a href="#" class="text-gray-500 hover:text-gray-800">
-                  <i class="fab fa-linkedin-in"></i>
+                <a href="https://youtube.com/@ahensugar?si=Ygfb61qyDx1iLg5X" class="text-gray-500 hover:text-gray-800">
+                  <i class="fab fa-youtube"></i>
                 </a>
               </div>
             </div>
@@ -49,11 +49,11 @@
             <div>
               <h3 class="text-xl font-bold mb-4">Our Products</h3>
               <ul class="text-gray-600 space-y-2">
-                <li><a href="#" class="hover:text-gray-900">Granulated Coconut Sugar</a></li>
-                <li><a href="#" class="hover:text-gray-900">Coconut Sugar Blocks</a></li>
-                <li><a href="#" class="hover:text-gray-900">Liquid Coconut Sugar</a></li>
-                <li><a href="#" class="hover:text-gray-900">Organic Certified Sugar</a></li>
-                <li><a href="#" class="hover:text-gray-900">Bulk Packaging</a></li>
+                <li><a href="products" class="hover:text-gray-900">Granulated Coconut Sugar</a></li>
+                <li><a href="products" class="hover:text-gray-900">Coconut Sugar Blocks</a></li>
+                <li><a href="products" class="hover:text-gray-900">Liquid Coconut Sugar</a></li>
+                {{-- <li><a href="#" class="hover:text-gray-900">Organic Certified Sugar</a></li>
+                <li><a href="#" class="hover:text-gray-900">Bulk Packaging</a></li> --}}
               </ul>
             </div>
           </div>

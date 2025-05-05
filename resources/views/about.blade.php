@@ -50,36 +50,69 @@
             this.lastScrollTop = st <= 0 ? 0 : st;
         }
     }" x-init="window.addEventListener('scroll', () => handleScroll())">
-        
+
         <!-- Sticky Navbar -->
         <x-navbar></x-navbar>
 
-        <!-- Page Banner -->
-        <div class="bg-amber-500 py-20 pb-7">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4">Sugarahen</h1>
-                <p class="text-xl text-white max-w-3xl mx-auto">Learn about our story, mission, and commitment to quality</p>
-            </div>
-        </div>
-
-        <main class="relative z-10 bg-white">
+        <main class="relative z-10 bg-white mt-10">
             <!-- About Section -->
-            <section class="py-20">
+            <section class="py-16">
                 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-14">
-                        <div class="rounded-xl overflow-hidden shadow-xl flex items-center">
-                            <img src="/img/sugarahen.jpeg" alt="Coconut Sugar Production" class="w-full object-cover">
+                    <div class="text-center bg-white">
+                        <h2 class="text-4xl font-bold text-gray-900">About <span class="text-amber-500">Sugarahen</span>
+                        </h2>
+                        <p class="mt-4 text-gray-600 max-w-3xl mx-auto">
+                            At Sugarahen, we specialize in premium coconut and palm sugar products crafted
+                            from the finest Indonesian coconut sap. Committed to sustainability, we deliver
+                            natural sweetness to customers worldwide, tailored to meet diverse culinary and
+                            industrial needs.
+                    </div>
+                </div>
+            </section>
+
+            <div class="relative border-b border-gray-150">
+                <!-- Video Background -->
+                <div class="relative max-w-4xl mx-auto mb-16">
+                    <div class="rounded-xl overflow-hidden shadow-lg">
+                        <video class="w-full aspect-video object-cover" autoplay muted loop>
+                            <source src="/video/pabrik.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                        <!-- Overlay to ensure text readability -->
+                        <div class="absolute inset-0 bg-black/10"></div>
+                    </div>
+                </div>
+            </div>
+
+            <section class="py-16 border-b border-gray-150">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <!-- Heading moved above both columns -->
+                    <div class="text-center mb-8">
+                        <h2 class="text-4xl font-bold text-gray-900">Our <span class="text-amber-500">Story</span></h2>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 md:gap-7">
+                        <div class="flex items-center justify-center p-2">
+                            <!-- Image container with adjusted display properties -->
+                            <div class="rounded-xl overflow-hidden shadow-xl w-full">
+                                <img src="/img/sugarahen.png" alt="Coconut Sugar Production"
+                                    class="w-full object-contain h-auto">
+                            </div>
                         </div>
-                        <div class="space-y-8 flex flex-col justify-center">
-                            <h2 class="text-3xl font-bold text-gray-900">Our <span class="text-amber-500">Story</span></h2>
+                        <div class="space-y-4 flex flex-col justify-center mt-6 md:mt-0">
                             <p class="text-gray-700 text-lg leading-relaxed text-justify">
-                                Sugar Ahen is a leading exporter of premium coconut sugar products from Indonesia.
-                                We work directly with local farmers to ensure sustainable farming practices and
-                                the highest quality products for our international customers.
+                                <span class="font-bold">Sugarahen</span> is a leading exporter of premium organic sugar
+                                products from Indonesia.
+                                We partner with local farmers to ensure sustainable farming, ethical sourcing, and
+                                top-quality products. Every step—from harvest to packaging—is carefully managed to
+                                deliver natural taste and meet global standards, while also supporting environmental
+                                responsibility and local communities.
                             </p>
                             <p class="text-gray-700 text-lg leading-relaxed text-justify">
-                                Our commitment to quality, sustainability, and fair trade has made us a trusted
-                                partner for food manufacturers, distributors, and retailers worldwide.
+                                Our strong commitment to quality, sustainability, and fair trade has made us a trusted
+                                partner for food manufacturers, distributors, and retailers worldwide. With a focus on
+                                long-term collaboration, Sugar Ahen provides reliable, ethical sweetener solutions for
+                                the global market.
                             </p>
                         </div>
                     </div>
@@ -87,59 +120,66 @@
             </section>
 
             <!-- Mission & Vision Section -->
-            <section class="py-20 bg-gray-100">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-14">
-            <div class="space-y-8 order-2 md:order-1 flex flex-col justify-center">
-                <h2 class="text-3xl font-bold text-gray-900">Our <span class="text-amber-500">Mission</span></h2>
-                <p class="text-gray-700 text-lg leading-relaxed text-justify">
-                    At Sugar Ahen, our mission is to provide the highest quality coconut sugar products
-                    while supporting sustainable farming practices and improving the livelihoods of
-                    local farmers in Indonesia.
-                </p>
-                <h2 class="text-3xl font-bold text-gray-900 mt-10">Our <span class="text-amber-500">Vision</span></h2>
-                <p class="text-gray-700 text-lg leading-relaxed text-justify">
-                    We envision a world where natural, sustainable sweeteners are the preferred choice
-                    for consumers and manufacturers, contributing to better health outcomes and
-                    environmental sustainability.
-                </p>
-            </div>
-            <div class="order-1 md:order-2 flex items-center justify-center md:justify-end">
-                <div class="rounded-xl overflow-hidden shadow-xl h-full flex items-center w-full md:w-11/12">
-                    <img src="/img/pabrik.jpg" alt="Coconut Sugar Farmers" class="w-full object-cover max-h-[400px]">
+            <section class="py-20 border-b border-gray-150">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-2">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-14">
+                        <div class="space-y-8 order-2 md:order-1 flex flex-col justify-center">
+                            <h2 class="text-3xl font-bold text-gray-900">Our <span class="text-amber-500">Mission</span>
+                            </h2>
+                            <p class="text-gray-700 text-lg leading-relaxed text-justify">
+                                At Sugar Ahen, our mission is to provide high-quality organic sugar
+                                products while supporting sustainable agricultural practices and improving
+                                the livelihoods of local farmers in Indonesia.
+                            </p>
+                            <h2 class="text-3xl font-bold text-gray-900 mt-10">Our <span
+                                    class="text-amber-500">Vision</span></h2>
+                            <p class="text-gray-700 text-lg leading-relaxed text-justify">
+                                We envision a world where natural, sustainable sweeteners are the preferred choice
+                                for consumers and manufacturers, contributing to better health outcomes and
+                                environmental sustainability.
+                            </p>
+                        </div>
+                        <div class="order-1 md:order-2 flex items-center justify-center md:justify-end">
+                            <div
+                                class="rounded-xl overflow-hidden shadow-xl h-full flex items-center w-full md:w-11/12">
+                                <img src="/img/pabrik.jpg" alt="Coconut Sugar Farmers"
+                                    class="w-full object-cover max-h-[400px]">
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </div>
-    </div>
-</section>
+            </section>
 
             <!-- Values Section -->
-            <section class="py-20 bg-white">
+            <section class="py-16 bg-white">
                 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div class="text-center mb-14">
+                    <div class="text-center mb-10">
                         <h2 class="text-4xl font-bold text-gray-900">Our <span class="text-amber-500">Values</span></h2>
                     </div>
-                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-6">
                         <div class="bg-white rounded-lg p-8 shadow-md value-card text-center">
                             <div class="text-amber-500 text-4xl mb-4">
                                 <i class="fas fa-leaf"></i>
                             </div>
                             <h3 class="text-xl font-bold mb-3 text-gray-900">Sustainability</h3>
-                            <p class="text-gray-700">We are committed to environmentally sustainable farming and production practices.</p>
+                            <p class="text-gray-700">We are committed to environmentally sustainable farming and
+                                production practices.</p>
                         </div>
                         <div class="bg-white rounded-lg p-8 shadow-md value-card text-center">
                             <div class="text-amber-500 text-4xl mb-4">
                                 <i class="fas fa-handshake"></i>
                             </div>
                             <h3 class="text-xl font-bold mb-3 text-gray-900">Fair Trade</h3>
-                            <p class="text-gray-700">We ensure fair compensation and good working conditions for all our farmers.</p>
+                            <p class="text-gray-700">We ensure fair compensation and good working conditions for all our
+                                farmers.</p>
                         </div>
                         <div class="bg-white rounded-lg p-8 shadow-md value-card text-center">
                             <div class="text-amber-500 text-4xl mb-4">
                                 <i class="fas fa-award"></i>
                             </div>
                             <h3 class="text-xl font-bold mb-3 text-gray-900">Quality</h3>
-                            <p class="text-gray-700">We maintain the highest standards of quality in all our products.</p>
+                            <p class="text-gray-700">We maintain the highest standards of quality in all our products.
+                            </p>
                         </div>
                         <div class="bg-white rounded-lg p-8 shadow-md value-card text-center">
                             <div class="text-amber-500 text-4xl mb-4">
@@ -156,7 +196,8 @@
             <section class="py-20 bg-amber-500">
                 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
                     <h2 class="text-4xl font-bold text-white mb-6">Want to Learn More?</h2>
-                    <p class="text-xl text-white mb-8 max-w-3xl mx-auto">Contact us today to discuss how we can meet your coconut sugar needs.</p>
+                    <p class="text-xl text-white mb-8 max-w-3xl mx-auto">Contact us today to discuss how we can meet
+                        your coconut sugar needs.</p>
                     <a href="/contact"
                         class="inline-flex items-center px-8 py-3 bg-white hover:bg-gray-100 text-amber-500 font-medium rounded-full transition-colors text-lg">
                         Contact Us
