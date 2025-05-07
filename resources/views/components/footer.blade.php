@@ -26,7 +26,7 @@
               <h3 class="text-xl font-bold mb-4">Factory</h3>
               <address class="text-gray-600 not-italic">
                 <p>Jl. Raya Sukabumi No. 123</p>
-                <p>Bandung, West Java</p>
+                <p>Sukabumi, West Java</p>
                 <p>Indonesia 40123</p>
                 <p class="mt-2">Phone: +62 812 9513 3302</p>
                 <p>Email: sugarahen75@gmail.com</p>

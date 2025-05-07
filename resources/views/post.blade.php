@@ -79,7 +79,7 @@
 
 <body class="h-full">
 
-    <div class="min-h-full" x-data="{
+    <div class="min-h-full flex flex-col" x-data="{
         lastScrollTop: 0,
         showNavbar: true,
         handleScroll() {
@@ -98,14 +98,14 @@
         <x-navbar></x-navbar>
 
         <!-- Main Content -->
-        <main class="bg-gray-100 py-1 pb-12">
-            <div class="bg-white rounded-lg shadow-md overflow-hidden">
+        <main class="bg-gray-100 mt-24 mb-10 flex-grow">
+            <div class="bg-white rounded-lg overflow-hidden">
                 <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div class="flex flex-col lg:flex-row gap-12">
                         <!-- Main Content Column -->
                         <div class="lg:w-2/3">
                             <!-- Author and Date -->
-                            <div class="text-gray-500 mb-4 py-7">
+                            <div class="text-gray-500 py-5">
                                 {{ $post->author }} —
                                 @if ($post->created_at)
                                     {{ $post->created_at->format('l, d F Y') }} ·
@@ -116,7 +116,7 @@
                             </div>
 
                             <!-- Post Title -->
-                            <h1 class="text-4xl font-bold text-gray-900 mb-6">{{ $post->tittle }}</h1>
+                            <h1 class="text-4xl font-bold text-gray-900 mb-4">{{ $post->tittle }}</h1>
 
                             <!-- Social Sharing -->
                             <div class="flex space-x-4 mb-8">
@@ -139,28 +139,27 @@
                             </div>
 
                             <!-- Featured Image -->
-                            <div class="w-full mb-7">
+                            <div class="w-full mb-7 aspect-[3/2] overflow-hidden rounded-lg">
                                 @if ($post->image)
-                                    @if(strpos($post->image, 'http') === 0)
+                                    @if (strpos($post->image, 'http') === 0)
                                         <!-- Untuk gambar lama yang masih berupa URL -->
                                         <img src="{{ $post->image }}" alt="{{ $post->tittle }}"
-                                            class="w-full h-auto rounded-lg">
+                                            class="w-full h-full object-cover object-center">
                                     @else
                                         <!-- Untuk gambar baru yang disimpan sebagai base64 -->
-                                        <img src="data:image/jpeg;base64,{{ $post->image }}" alt="{{ $post->tittle }}"
-                                            class="w-full h-auto rounded-lg">
+                                        <img src="data:image/jpeg;base64,{{ $post->image }}"
+                                            alt="{{ $post->tittle }}" class="w-full h-full object-cover object-center">
                                     @endif
                                 @else
-                                    <img src="https://source.unsplash.com/random/1200x600/?wordpress"
-                                        alt="{{ $post->tittle }}" class="w-full h-auto rounded-lg">
+                                    <img src="https://source.unsplash.com/random/1200x800/?wordpress"
+                                        alt="{{ $post->tittle }}" class="w-full h-full object-cover object-center">
                                 @endif
                             </div>
 
                             <!-- Post Content -->
-                            <div class="post-content text-gray-800">
+                            <div class="post-content text-gray-800 mb-4">
                                 {!! nl2br($post->body) !!}
                             </div>
-                            <div class="mb-16"></div>
                         </div>
 
                         <!-- Sidebar -->

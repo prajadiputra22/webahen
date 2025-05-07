@@ -26,12 +26,6 @@
             <form method="POST" action="{{ route('admin.register') }}">
                 @csrf
                 <div class="mb-4">
-                    <label for="name" class="block text-gray-700 text-sm font-bold mb-2">Name</label>
-                    <input type="text" name="name" id="name" value="{{ old('name') }}" required autofocus
-                        class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
-                </div>
-
-                <div class="mb-4">
                     <label for="email" class="block text-gray-700 text-sm font-bold mb-2">Email Address</label>
                     <input type="email" name="email" id="email" value="{{ old('email') }}" required
                         class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">

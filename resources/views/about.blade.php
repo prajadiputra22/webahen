@@ -95,7 +95,7 @@
                         <div class="flex items-center justify-center p-2">
                             <!-- Image container with adjusted display properties -->
                             <div class="rounded-xl overflow-hidden shadow-xl w-full">
-                                <img src="/img/sugarahen.png" alt="Coconut Sugar Production"
+                                <img src="/img/ahen.png" alt="Coconut Sugar Production"
                                     class="w-full object-contain h-auto">
                             </div>
                         </div>

@@ -128,8 +128,8 @@
                             <h3 class="text-lg font-bold text-gray-900">USDA Organic</h3>
                         </div> --}}
                         <div class="bg-white rounded-xl p-6 text-center shadow-md certification-card">
-                            <img src="img\certificate\eu.png" alt="EU Organic" class="w-24 h-24 mx-auto mb-4">
-                            <h3 class="text-lg font-bold text-gray-900">EU Organic</h3>
+                            <img src="img\certificate\bpom.jpeg" alt="EU Organic" class="w-24 h-24 mx-auto mb-4">
+                            <h3 class="text-lg font-bold text-gray-900">BPOM Certificated</h3>
                         </div>
                         <div class="bg-white rounded-xl p-6 text-center shadow-md certification-card">
                             <img src="img\certificate\halal.jpeg" alt="Halal" class="w-24 h-24 mx-auto mb-4">

@@ -67,7 +67,7 @@
                     </div>
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-14 items-center">
                         <div class="rounded-xl overflow-hidden shadow-xl">
-                            <img src="/img/sugarahen.png" alt="Coconut Sugar Production"
+                            <img src="/img/ahen.png" alt="Coconut Sugar Production"
                                 class="w-full h-full object-cover">
                         </div>
                         <div class="space-y-8">

@@ -83,7 +83,7 @@
                 <div class="p-6 md:w-3/5">
                     <h3 class="text-2xl font-bold text-gray-900 mb-3">Liquid Palm Sugar</h3>
                     <p class="text-gray-600 mb-4">
-                        Our liquid coconut sugar syrup is a versatile sweetener with a rich caramel flavor, perfect for drizzling.
+                        Our liquid palm sugar syrup is a versatile sweetener with a rich caramel flavor, perfect for drizzling.
                     </p>
                     <ul class="space-y-2 mb-6">
                         <li class="flex items-center text-gray-700">
@@ -118,18 +118,18 @@
                     <img src="/img/certificate/certif.jpg" alt="Organic Certified Sugar" class="w-full h-full object-cover">
                 </div>
                 <div class="p-6 md:w-3/5">
-                    <h3 class="text-2xl font-bold text-gray-900 mb-3">Organic Certified Sugar</h3>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-3">100% Organic Sugar</h3>
                     <p class="text-gray-600 mb-4">
                         Our certified organic coconut sugar meets the highest standards for organic production and processing.
                     </p>
                     <ul class="space-y-2 mb-6">
                         <li class="flex items-center text-gray-700">
                             <i class="fas fa-check text-amber-500 mr-2"></i>
-                            Halal    certified
+                            Halal certified
                         </li>
                         <li class="flex items-center text-gray-700">
                             <i class="fas fa-check text-amber-500 mr-2"></i>
-                            EU Organic certified
+                            BPOM certified
                         </li>
                         <li class="flex items-center text-gray-700">
                             <i class="fas fa-check text-amber-500 mr-2"></i>
