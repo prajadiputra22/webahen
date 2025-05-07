@@ -147,7 +147,7 @@
             <!-- CTA Section -->
             <section class="py-16 bg-amber-500">
                 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                    <h2 class="text-4xl font-bold text-white mb-6">Ready to Order Premium Coconut Sugar?</h2>
+                    <h2 class="text-4xl font-bold text-white mb-6">Ready to Order Premium Coconut & Palm Sugar?</h2>
                     <p class="text-xl text-white mb-8 max-w-3xl mx-auto">Contact our team today to discuss your coconut sugar needs.</p>
                     <a href="/contact"
                         class="inline-flex items-center px-8 py-3 bg-white hover:bg-gray-100 text-amber-500 font-medium rounded-full transition-colors text-lg">
