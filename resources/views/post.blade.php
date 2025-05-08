@@ -102,9 +102,9 @@
         <main class="bg-gray-100 mt-24 mb-10 flex-grow">
             <div class="bg-white rounded-lg overflow-hidden">
                 <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div class="flex flex-col lg:flex-row gap-12">
+                    <div class="flex flex-col lg:flex-row gap-12" x-data="stickyScroll()">
                         <!-- Main Content Column -->
-                        <div class="lg:w-2/3">
+                        <div class="order-1 lg:w-2/3" x-ref="mainContent">
                             <!-- Author and Date -->
                             <div class="text-gray-500 py-5">
                                 {{ $post->author }} —
@@ -164,8 +164,10 @@
                         </div>
 
                         <!-- Sidebar -->
-                        <div class="lg:w-1/3">
-                            <div class="sticky top-8">
+                        <div class="order-2 lg:w-2/5 lg:pl-6">
+                            <div x-ref="sidebar" 
+                                 :style="!isMobile ? { position: position, top: `${top}px` } : {}" 
+                                 class="max-w-sm">
                                 <h2 class="text-3xl font-bold mb-8">Latest News</h2>
 
                                 <!-- Latest Posts -->
@@ -177,16 +179,18 @@
                                 @endphp
 
                                 @foreach ($latestPosts as $latestPost)
-                                    <div class="mb-8">
+                                    <div class="mb-5">
                                         <div class="text-sky-500 font-medium uppercase text-sm mb-2">INFORMASI</div>
                                         <a href="/posts/{{ $latestPost->slug }}" class="block">
                                             <h3 class="text-xl font-semibold text-gray-900 mb-2 hover:text-sky-600">
                                                 {{ $latestPost->tittle }}</h3>
                                         </a>
-                                        <div class="text-gray-500 text-sm">
-                                            @if ($latestPost->created_at)
-                                                {{ $latestPost->created_at->format('d F Y') }}
-                                            @endif
+                                        <div class="border-b border-gray-150">
+                                            <div class="text-gray-500 text-sm mb-5">
+                                                @if ($latestPost->created_at)
+                                                    {{ $latestPost->created_at->format('d F Y') }}
+                                                @endif
+                                            </div>
                                         </div>
                                     </div>
                                 @endforeach
@@ -207,6 +211,93 @@
     <script>
         // Set current year in footer
         document.getElementById('current-year').textContent = new Date().getFullYear();
+        
+        // Alpine.js fungsi untuk sticky sidebar with bottom boundary
+        function stickyScroll() {
+            return {
+                position: 'relative',
+                top: 0,
+                sidebarHeight: 0,
+                mainContentHeight: 0,
+                sidebarOffset: 0,
+                footerHeight: 0,
+                windowHeight: 0,
+                initialTopOffset: 24, // Initial top offset in pixels (24px = top-6)
+                isMobile: window.innerWidth < 1024, // Check if mobile view (matches lg breakpoint)
+                
+                init() {
+                    // Get initial measurements
+                    this.updateMeasurements();
+                    
+                    // Add scroll event listener
+                    window.addEventListener('scroll', () => this.handleStickyScroll());
+                    
+                    // Add resize event listener to update measurements
+                    window.addEventListener('resize', () => {
+                        this.isMobile = window.innerWidth < 1024;
+                        this.updateMeasurements();
+                    });
+                    
+                    // Initial position calculation
+                    this.handleStickyScroll();
+                },
+                
+                updateMeasurements() {
+                    const sidebar = this.$refs.sidebar;
+                    const mainContent = this.$refs.mainContent;
+                    
+                    if (!sidebar || !mainContent) return;
+                    
+                    this.sidebarHeight = sidebar.offsetHeight;
+                    this.mainContentHeight = mainContent.offsetHeight;
+                    this.sidebarOffset = sidebar.offsetTop;
+                    this.windowHeight = window.innerHeight;
+                    this.footerHeight = document.querySelector('footer')?.offsetHeight || 0;
+                },
+                
+                handleStickyScroll() {
+                    // Skip sticky behavior on mobile
+                    if (this.isMobile) {
+                        this.position = 'relative';
+                        this.top = 0;
+                        return;
+                    }
+                    
+                    const scrollY = window.scrollY;
+                    const mainContentBottom = this.$refs.mainContent.offsetTop + this.mainContentHeight;
+                    const sidebarBottom = scrollY + this.initialTopOffset + this.sidebarHeight;
+                    
+                    // If sidebar is shorter than viewport, just make it sticky
+                    if (this.sidebarHeight < (this.windowHeight - this.initialTopOffset)) {
+                        if (scrollY > this.sidebarOffset - this.initialTopOffset) {
+                            this.position = 'fixed';
+                            this.top = this.initialTopOffset;
+                        } else {
+                            this.position = 'relative';
+                            this.top = 0;
+                        }
+                    } 
+                    // If sidebar is taller than viewport, we need to handle bottom boundary
+                    else {
+                        // If we've scrolled past the bottom boundary
+                        if (sidebarBottom >= mainContentBottom) {
+                            this.position = 'absolute';
+                            this.top = this.mainContentHeight - this.sidebarHeight;
+                        } 
+                        // If we're within normal scrolling range
+                        else if (scrollY > this.sidebarOffset - this.initialTopOffset) {
+                            this.position = 'fixed';
+                            this.top = this.initialTopOffset;
+                        } 
+                        // If we're at the top
+                        else {
+                            this.position = 'relative';
+                            this.top = 0;
+                        }
+                    }
+                }
+            }
+        }
     </script>
 </body>
 

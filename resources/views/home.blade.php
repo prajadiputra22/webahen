@@ -62,7 +62,7 @@
             <!-- About Section -->
             <section id="about" class="py-16 border-b border-gray-150">
                 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div class="text-center mb-14">
+                    <div class="text-center mb-8">
                         <h2 class="text-4xl font-bold text-gray-900">About <span class="text-amber-500">Sugarahen</span>
                         </h2>
                     </div>
@@ -95,7 +95,7 @@
             <!-- Products Section - Updated to make entire cards clickable -->
             <section id="products" class="py-16 bg-white text-black">
                 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div class="text-center mb-8">
+                    <div class="text-center mb-12">
                         <h2 class="text-4xl font-bold">Our <span class="text-amber-500">Products</span></h2>
                         <p class="mt-4 text-gray-600 max-w-2xl mx-auto">
                             We offer a wide range of high-quality coconut sugar products to meet the diverse
@@ -145,13 +145,13 @@
                         <!-- Product 3 - Entire card is now clickable -->
                         <a href="/products" class="block bg-white rounded-lg overflow-hidden shadow-md product-card">
                             <div class="h-64 overflow-hidden">
-                                <img src="/img/liquidsugar.jpeg" alt="Liquid Coconut Sugar"
+                                <img src="/img/liquidsugar.jpeg" alt="Liquid Palm Sugar"
                                     class="w-full h-full object-contain product-image">
                             </div>
                             <div class="p-6">
-                                <h3 class="text-xl font-bold mb-2">Liquid Coconut Sugar</h3>
+                                <h3 class="text-xl font-bold mb-2">Liquid Palm Sugar</h3>
                                 <p class="text-gray-600 mb-4 text-justify">
-                                    Our liquid coconut sugar syrup is a versatile sweetener with a rich caramel flavor,
+                                    Our liquid palm sugar syrup is a versatile sweetener with a rich caramel flavor,
                                     perfect for drizzling.
                                 </p>
                                 {{-- <div class="inline-flex items-center text-amber-500 font-medium">

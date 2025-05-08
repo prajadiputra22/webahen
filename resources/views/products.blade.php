@@ -69,7 +69,7 @@
             <section class="py-16">
                 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div class="text-center">
-                        <h2 class="text-4xl font-bold text-gray-900">Premium <span class="text-amber-500">Coconut</span> & <span class="text-amber-500">Palm Sugar</span></h2>
+                        <h2 class="text-4xl font-bold text-gray-900">Premium <span class="text-amber-500">Coconut & Palm Sugar</span></h2>
                         <p class="mt-4 text-gray-600 max-w-3xl mx-auto">
                             We offer a wide range of high-quality coconut and palm sugar products to meet the diverse 
                             needs of our customers around the world. All our products are made from the finest 
