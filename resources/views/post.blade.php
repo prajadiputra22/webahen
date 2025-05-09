@@ -109,7 +109,7 @@
         <x-navbar></x-navbar>
 
         <!-- Main Content -->
-        <main class="bg-gray-100 mt-24 mb-10 flex-grow">
+        <main class="bg-gray-100 mt-24 flex-grow">
             <div class="bg-white rounded-lg overflow-hidden">
                 <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div class="flex flex-col lg:flex-row gap-12" x-data="stickyScroll()">
@@ -168,7 +168,7 @@
                             </div>
 
                             <!-- Post Content -->
-                            <div class="post-content text-gray-800 mb-5">
+                            <div class="post-content text-gray-800 mb-12">
                                 {!! nl2br($post->body) !!}
                             </div>
                         </div>
