@@ -177,8 +177,7 @@
                         <div class="order-2 lg:w-2/5 lg:pl-6">
                             <div x-ref="sidebar" :style="!isMobile ? { position: position, top: `${top}px` } : {}"
                                 class="max-w-sm">
-                                <h2 class="text-3xl font-bold mb-8 py-12">Latest News</h2>
-
+                                <h2 class="text-3xl font-bold mt-4 mb-4">Latest News</h2>
                                 <!-- Latest Posts -->
                                 @php
                                     $latestPosts = \App\Models\Post::latest()
