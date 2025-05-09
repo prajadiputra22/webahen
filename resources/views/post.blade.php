@@ -60,6 +60,16 @@
             color: #4B5563;
         }
 
+        .post-content a {
+            color: #0EA5E9;
+            text-decoration: underline;
+            transition: color 0.2s;
+        }
+
+        .post-content a:hover {
+            color: #0284C7;
+        }
+
         .social-icon {
             display: inline-flex;
             align-items: center;
@@ -165,10 +175,9 @@
 
                         <!-- Sidebar -->
                         <div class="order-2 lg:w-2/5 lg:pl-6">
-                            <div x-ref="sidebar" 
-                                 :style="!isMobile ? { position: position, top: `${top}px` } : {}" 
-                                 class="max-w-sm">
-                                <h2 class="text-3xl font-bold mb-8">Latest News</h2>
+                            <div x-ref="sidebar" :style="!isMobile ? { position: position, top: `${top}px` } : {}"
+                                class="max-w-sm">
+                                <h2 class="text-3xl font-bold mb-8 py-12">Latest News</h2>
 
                                 <!-- Latest Posts -->
                                 @php
@@ -211,7 +220,7 @@
     <script>
         // Set current year in footer
         document.getElementById('current-year').textContent = new Date().getFullYear();
-        
+
         // Alpine.js fungsi untuk sticky sidebar with bottom boundary
         function stickyScroll() {
             return {
@@ -224,37 +233,37 @@
                 windowHeight: 0,
                 initialTopOffset: 24, // Initial top offset in pixels (24px = top-6)
                 isMobile: window.innerWidth < 1024, // Check if mobile view (matches lg breakpoint)
-                
+
                 init() {
                     // Get initial measurements
                     this.updateMeasurements();
-                    
+
                     // Add scroll event listener
                     window.addEventListener('scroll', () => this.handleStickyScroll());
-                    
+
                     // Add resize event listener to update measurements
                     window.addEventListener('resize', () => {
                         this.isMobile = window.innerWidth < 1024;
                         this.updateMeasurements();
                     });
-                    
+
                     // Initial position calculation
                     this.handleStickyScroll();
                 },
-                
+
                 updateMeasurements() {
                     const sidebar = this.$refs.sidebar;
                     const mainContent = this.$refs.mainContent;
-                    
+
                     if (!sidebar || !mainContent) return;
-                    
+
                     this.sidebarHeight = sidebar.offsetHeight;
                     this.mainContentHeight = mainContent.offsetHeight;
                     this.sidebarOffset = sidebar.offsetTop;
                     this.windowHeight = window.innerHeight;
                     this.footerHeight = document.querySelector('footer')?.offsetHeight || 0;
                 },
-                
+
                 handleStickyScroll() {
                     // Skip sticky behavior on mobile
                     if (this.isMobile) {
@@ -262,11 +271,11 @@
                         this.top = 0;
                         return;
                     }
-                    
+
                     const scrollY = window.scrollY;
                     const mainContentBottom = this.$refs.mainContent.offsetTop + this.mainContentHeight;
                     const sidebarBottom = scrollY + this.initialTopOffset + this.sidebarHeight;
-                    
+
                     // If sidebar is shorter than viewport, just make it sticky
                     if (this.sidebarHeight < (this.windowHeight - this.initialTopOffset)) {
                         if (scrollY > this.sidebarOffset - this.initialTopOffset) {
@@ -276,19 +285,19 @@
                             this.position = 'relative';
                             this.top = 0;
                         }
-                    } 
+                    }
                     // If sidebar is taller than viewport, we need to handle bottom boundary
                     else {
                         // If we've scrolled past the bottom boundary
                         if (sidebarBottom >= mainContentBottom) {
                             this.position = 'absolute';
                             this.top = this.mainContentHeight - this.sidebarHeight;
-                        } 
+                        }
                         // If we're within normal scrolling range
                         else if (scrollY > this.sidebarOffset - this.initialTopOffset) {
                             this.position = 'fixed';
                             this.top = this.initialTopOffset;
-                        } 
+                        }
                         // If we're at the top
                         else {
                             this.position = 'relative';
