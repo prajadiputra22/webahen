@@ -168,7 +168,7 @@
                             </div>
 
                             <!-- Post Content -->
-                            <div class="post-content text-gray-800 mb-12">
+                            <div class="post-content text-gray-800 mb-8">
                                 {!! nl2br($post->body) !!}
                             </div>
                         </div>
