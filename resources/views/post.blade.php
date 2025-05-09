@@ -130,7 +130,7 @@
                             <h1 class="text-4xl font-bold text-gray-900 mb-4">{{ $post->tittle }}</h1>
 
                             <!-- Social Sharing -->
-                            <div class="flex space-x-4 mb-8">
+                            <div class="flex space-x-4 mb-6">
                                 <a href="https://instagram.com" target="_blank" class="social-icon">
                                     <i class="fab fa-instagram"></i>
                                 </a>
@@ -150,7 +150,7 @@
                             </div>
 
                             <!-- Featured Image -->
-                            <div class="w-full mb-7 aspect-[3/2] overflow-hidden rounded-lg">
+                            <div class="w-full mb-10 aspect-[3/2] overflow-hidden rounded-lg">
                                 @if ($post->image)
                                     @if (strpos($post->image, 'http') === 0)
                                         <!-- Untuk gambar lama yang masih berupa URL -->
@@ -168,7 +168,7 @@
                             </div>
 
                             <!-- Post Content -->
-                            <div class="post-content text-gray-800 mb-4">
+                            <div class="post-content text-gray-800 mb-5">
                                 {!! nl2br($post->body) !!}
                             </div>
                         </div>
