@@ -42,8 +42,9 @@
                     Coconut sugar<br>&amp; Palm sugar
                 </h1>
                 <p class="text-lg lg:text-xl text-white mt-4 mb-6 max-w-xl">
-                    Made from high quality genuine Indonesian palm sap, it produces natural sugar that is good for
-                    the body.
+                    Made from high quality genuine Indonesian<br>
+                    coconut sap and palm sap, it produces<br>
+                    natural sugar that is good for the body.<br>
                 </p>
                 <div class="mt-6">
                     <a href="/contact#contactForm"

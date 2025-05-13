@@ -90,13 +90,12 @@
                 </div>
             </div>
 
-            <section class="py-16 border-b border-gray-150">
+            <!-- Story Sugarahen -->
+            <section class="py-16 border-b border-gray-150" id="story">
                 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <!-- Heading moved above both columns -->
                     <div class="text-center mb-8">
                         <h2 class="text-4xl font-bold text-gray-900">Our <span class="text-amber-500">Story</span></h2>
                     </div>
-
                     <div class="grid grid-cols-1 md:grid-cols-2 md:gap-7">
                         <div class="flex items-center justify-center p-2">
                             <!-- Image container with adjusted display properties -->

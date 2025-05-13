@@ -79,9 +79,10 @@
                         </h2>
                     </div>
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-14 items-center">
-                        <div class="rounded-xl overflow-hidden shadow-xl">
-                            <img src="/img/ahen.png" alt="Coconut Sugar Production" class="w-full h-full object-cover">
+                        <div class="w-30 h-30 rounded-xl overflow-hidden shadow-xl">
+                            <img src="/img/ahen.png" alt="Coconut Sugar Production" class="w-30 h-30 object-contain">
                         </div>
+
                         <div class="space-y-8">
                             <p class="text-gray-700 text-lg leading-relaxed text-justify">
                                 <span class="font-bold">Sugarahen</span> is a leading exporter of premium coconut sugar
@@ -94,7 +95,7 @@
                                 partner for food manufacturers, distributors, and retailers worldwide.
                             </p>
                             <div class="text-center mt-10">
-                                <a href="/about"
+                                <a href="/about#story"
                                     class="inline-flex items-center px-8 py-3 bg-amber-500 hover:bg-amber-600 text-white font-medium rounded-full transition-colors text-lg">
                                     Learn More About Us
                                     <i class="fas fa-chevron-right ml-2"></i>

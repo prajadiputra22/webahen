@@ -85,10 +85,64 @@
         .social-icon:hover {
             background-color: #e5e7eb;
         }
+
+        /* Custom Notification Styling */
+        #notification-container {
+            position: fixed;
+            top: 75px;
+            left: 43%;
+            transform: translateX(-50%);
+            z-index: 10000;
+            display: none;
+        }
+
+        .notification {
+            background-color: white;
+            color: black;
+            padding: 12px 24px;
+            border-radius: 6px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            font-weight: 500;
+        }
+
+        .notification-show {
+            display: block !important;
+            animation: slideDown 0.3s ease-out forwards;
+        }
+
+        .notification-hide {
+            animation: slideUp 0.2s ease-in forwards;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 1;
+                transform: translateY(0);
+            }
+            to {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+        }
     </style>
 </head>
 
 <body class="h-full">
+    <!-- Notification Container -->
+    <div id="notification-container">
+        <div class="notification">Link Copied to Clipboard</div>
+    </div>
 
     <div class="min-h-full flex flex-col" x-data="{
         lastScrollTop: 0,
@@ -107,6 +161,13 @@
     }" x-init="window.addEventListener('scroll', () => handleScroll())">
         <!-- Sticky Navbar -->
         <x-navbar></x-navbar>
+
+        <!-- Test Button for Notification -->
+        <div class="fixed top-2 right-2 z-50">
+            <button onclick="showNotification()" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                Test Notification
+            </button>
+        </div>
 
         <!-- Main Content -->
         <main class="bg-gray-100 mt-24 flex-grow">
@@ -131,7 +192,7 @@
 
                             <!-- Social Sharing -->
                             <div class="flex space-x-4 mb-6">
-                                <a href="https://instagram.com" target="_blank" class="social-icon">
+                                <a href="#" onclick="copyLink(); return false;" class="social-icon">
                                     <i class="fab fa-instagram"></i>
                                 </a>
                                 <a href="https://twitter.com/intent/tweet?url={{ url()->current() }}&text={{ $post->tittle }}"
@@ -142,9 +203,7 @@
                                     target="_blank" class="social-icon">
                                     <i class="fab fa-facebook-f"></i>
                                 </a>
-                                <a href="#"
-                                    onclick="navigator.clipboard.writeText('{{ url()->current() }}'); alert('Link copied to clipboard!'); return false;"
-                                    class="social-icon">
+                                <a href="#" onclick="copyLink(); return false;" class="social-icon">
                                     <i class="fas fa-link"></i>
                                 </a>
                             </div>
@@ -219,6 +278,28 @@
     <script>
         // Set current year in footer
         document.getElementById('current-year').textContent = new Date().getFullYear();
+
+        // Notification functions
+        function showNotification() {
+            const container = document.getElementById('notification-container');
+            container.style.display = 'block';
+            container.classList.add('notification-show');
+            
+            // Hide after 2 seconds
+            setTimeout(() => {
+                container.classList.add('notification-hide');
+                setTimeout(() => {
+                    container.classList.remove('notification-show');
+                    container.classList.remove('notification-hide');
+                    container.style.display = 'none';
+                }, 200);
+            }, 4000);
+        }
+
+        function copyLink() {
+            navigator.clipboard.writeText('{{ url()->current() }}');
+            showNotification();
+        }
 
         // Alpine.js fungsi untuk sticky sidebar with bottom boundary
         function stickyScroll() {
