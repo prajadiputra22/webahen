@@ -48,8 +48,8 @@ Route::get('/test-email', [App\Http\Controllers\ContactController::class, 'testE
 Route::middleware('guest:admin')->group(function () {
     Route::get('/admin/login', [AdminAuthController::class, 'showLoginForm'])->name('admin.login');
     Route::post('/admin/login', [AdminAuthController::class, 'login']);
-    Route::get('/admin/register', [AdminAuthController::class, 'showRegistrationForm'])->name('admin.register');
-    Route::post('/admin/register', [AdminAuthController::class, 'register']);
+    // Route::get('/admin/register', [AdminAuthController::class, 'showRegistrationForm'])->name('admin.register');
+    // Route::post('/admin/register', [AdminAuthController::class, 'register']);
 });
 
 // Admin Dashboard Routes
@@ -61,4 +61,24 @@ Route::middleware('auth:admin')->prefix('admin')->group(function () {
     Route::put('/posts/{post}', [AdminDashboardController::class, 'update'])->name('admin.posts.update');
     Route::delete('/posts/{post}', [AdminDashboardController::class, 'destroy'])->name('admin.posts.destroy');
     Route::post('/logout', [AdminAuthController::class, 'logout'])->name('admin.logout');
+});
+
+Route::get('/401', function () {
+    abort(401);
+});
+
+Route::get('/403', function () {
+    abort(403);
+});
+
+Route::get('/404', function () {
+    abort(404);
+});
+
+Route::get('/419', function () {
+    abort(419);
+});
+
+Route::get('/500', function () {
+    abort(500);
 });

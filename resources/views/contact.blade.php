@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="icon" type="image/png" sizes="32x32" href="/img/ahen.png">
-    <title>Contact Us - Sugar Ahen</title>
+    <title>Contact Us - Sugarahen</title>
     <style>
         /* Contact card styling */
         .contact-card {

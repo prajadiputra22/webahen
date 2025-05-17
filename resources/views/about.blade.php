@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="icon" type="image/png" sizes="32x32" href="/img/ahen.png">
-    <title>About Us - Sugar Ahen</title>
+    <title>About Us - Sugarahen</title>
     <style>
         /* Team member card styling */
         .team-member {
@@ -35,6 +35,21 @@
         /* Hero section fix */
         .hero-section {
             padding-top: 4rem;
+        }
+
+        /* Ensure video corners are rounded */
+        video {
+            border-radius: inherit;
+        }
+
+        /* Fix for video corners */
+        .video-container {
+            border-radius: 1.5rem;
+            overflow: hidden;
+            transform: translateZ(0);
+        }
+        .video-container * {
+            border-radius: inherit;
         }
     </style>
 </head>
@@ -79,13 +94,13 @@
             <div class="relative border-b border-gray-150">
                 <!-- Video Background -->
                 <div class="relative max-w-4xl mx-auto mb-16">
-                    <div class="rounded-xl overflow-hidden shadow-lg">
-                        <video class="w-full aspect-video object-cover" autoplay muted loop>
+                    <div class="rounded-3xl overflow-hidden" style="box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04); border-radius: 1.5rem;">
+                        <video class="w-full aspect-video object-cover rounded-3xl" autoplay muted loop style="border-radius: 1.5rem;">
                             <source src="/video/pabrik.mp4" type="video/mp4">
                             Your browser does not support the video tag.
                         </video>
                         <!-- Overlay to ensure text readability -->
-                        <div class="absolute inset-0 bg-black/10"></div>
+                        <div class="absolute inset-0 bg-black/10 rounded-3xl" style="border-radius: 1.5rem;"></div>
                     </div>
                 </div>
             </div>

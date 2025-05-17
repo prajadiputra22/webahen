@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="icon" type="image/png" sizes="32x32" href="/img/ahen.png">
-    <title>{{ $post->tittle }} - Sugar Ahen</title>
+    <title>{{ $post->tittle }} - Sugarahen</title>
     <style>
         /* Content styling */
         .post-content {
@@ -90,49 +90,37 @@
         #notification-container {
             position: fixed;
             top: 75px;
-            left: 43%;
-            transform: translateX(-50%);
+            left: 0;
+            right: 0;
+            width: 100%;
             z-index: 10000;
             display: none;
+            text-align: center;
         }
 
         .notification {
             background-color: white;
             color: black;
             padding: 12px 24px;
-            border-radius: 6px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin: 0 auto;
+            border-bottom: 1px solid #eaeaea;
             font-weight: 500;
+            display: inline-block;
+            max-width: 80%;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            border-radius: 6px;
         }
 
-        .notification-show {
-            display: block !important;
-            animation: slideDown 0.3s ease-out forwards;
-        }
-
-        .notification-hide {
-            animation: slideUp 0.2s ease-in forwards;
-        }
-
-        @keyframes slideDown {
-            from {
-                opacity: 0;
-                transform: translateY(-20px);
+        @media (min-width: 768px) {
+            #notification-container {
+                width: auto;
+                left: 50%;
+                transform: translateX(-50%);
             }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
 
-        @keyframes slideUp {
-            from {
-                opacity: 1;
-                transform: translateY(0);
-            }
-            to {
-                opacity: 0;
-                transform: translateY(-20px);
+            .notification {
+                width: auto;
+                max-width: 300px;
             }
         }
     </style>
@@ -162,18 +150,11 @@
         <!-- Sticky Navbar -->
         <x-navbar></x-navbar>
 
-        <!-- Test Button for Notification -->
-        <div class="fixed top-2 right-2 z-50">
-            <button onclick="showNotification()" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-                Test Notification
-            </button>
-        </div>
-
         <!-- Main Content -->
         <main class="bg-gray-100 mt-24 flex-grow">
             <div class="bg-white rounded-lg overflow-hidden">
                 <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div class="flex flex-col lg:flex-row gap-12" x-data="stickyScroll()">
+                    <div class="flex flex-col lg:flex-row gap-12 pb-16" x-data="stickyScroll()">
                         <!-- Main Content Column -->
                         <div class="order-1 lg:w-2/3" x-ref="mainContent">
                             <!-- Author and Date -->
@@ -284,7 +265,7 @@
             const container = document.getElementById('notification-container');
             container.style.display = 'block';
             container.classList.add('notification-show');
-            
+
             // Hide after 2 seconds
             setTimeout(() => {
                 container.classList.add('notification-hide');
@@ -293,7 +274,7 @@
                     container.classList.remove('notification-hide');
                     container.style.display = 'none';
                 }, 200);
-            }, 4000);
+            }, 3500); // Changed back to 5 seconds as requested earlier
         }
 
         function copyLink() {
@@ -310,8 +291,10 @@
                 mainContentHeight: 0,
                 sidebarOffset: 0,
                 footerHeight: 0,
+                footerOffset: 0,
                 windowHeight: 0,
-                initialTopOffset: 24, // Initial top offset in pixels (24px = top-6)
+                initialTopOffset: 48, // Initial top offset in pixels (24px = top-6)
+                bottomMargin: 30, // No margin from bottom of content (align with the last line)
                 isMobile: window.innerWidth < 1024, // Check if mobile view (matches lg breakpoint)
 
                 init() {
@@ -325,6 +308,7 @@
                     window.addEventListener('resize', () => {
                         this.isMobile = window.innerWidth < 1024;
                         this.updateMeasurements();
+                        this.handleStickyScroll();
                     });
 
                     // Initial position calculation
@@ -334,6 +318,7 @@
                 updateMeasurements() {
                     const sidebar = this.$refs.sidebar;
                     const mainContent = this.$refs.mainContent;
+                    const footer = document.querySelector('footer');
 
                     if (!sidebar || !mainContent) return;
 
@@ -341,7 +326,22 @@
                     this.mainContentHeight = mainContent.offsetHeight;
                     this.sidebarOffset = sidebar.offsetTop;
                     this.windowHeight = window.innerHeight;
-                    this.footerHeight = document.querySelector('footer')?.offsetHeight || 0;
+
+                    // We still get footer position for reference but focus on the main content bottom alignment
+                    if (footer) {
+                        this.footerHeight = footer.offsetHeight;
+                        this.footerOffset = this.getOffsetTop(footer);
+                    }
+                },
+
+                // Helper to get offset from document top (since offsetTop is only relative to parent)
+                getOffsetTop(element) {
+                    let offsetTop = 0;
+                    while (element) {
+                        offsetTop += element.offsetTop;
+                        element = element.offsetParent;
+                    }
+                    return offsetTop;
                 },
 
                 handleStickyScroll() {
@@ -354,31 +354,44 @@
 
                     const scrollY = window.scrollY;
                     const mainContentBottom = this.$refs.mainContent.offsetTop + this.mainContentHeight;
+                    const viewportBottom = scrollY + this.windowHeight;
                     const sidebarBottom = scrollY + this.initialTopOffset + this.sidebarHeight;
 
-                    // If sidebar is shorter than viewport, just make it sticky
+                    // Calculate when sidebar should stop (to align with the last line of content)
+                    // For aligning with main content bottom:
+                    const stopPosition = mainContentBottom - this.sidebarHeight;
+
+                    // If sidebar is shorter than viewport, make it sticky with content alignment
                     if (this.sidebarHeight < (this.windowHeight - this.initialTopOffset)) {
-                        if (scrollY > this.sidebarOffset - this.initialTopOffset) {
+                        // If we've scrolled past the main content boundary
+                        if (scrollY > stopPosition) {
+                            this.position = 'absolute';
+                            this.top = mainContentBottom - this.sidebarHeight - this.sidebarOffset + this.initialTopOffset;
+                        }
+                        // If we're past the initial sidebar position
+                        else if (scrollY > this.sidebarOffset - this.initialTopOffset) {
                             this.position = 'fixed';
                             this.top = this.initialTopOffset;
-                        } else {
+                        }
+                        // At the top of the page
+                        else {
                             this.position = 'relative';
                             this.top = 0;
                         }
                     }
-                    // If sidebar is taller than viewport, we need to handle bottom boundary
+                    // If sidebar is taller than viewport
                     else {
-                        // If we've scrolled past the bottom boundary
-                        if (sidebarBottom >= mainContentBottom) {
+                        // If we've scrolled to where the bottom of sidebar would align with main content
+                        if (scrollY + this.sidebarHeight + this.initialTopOffset > mainContentBottom) {
                             this.position = 'absolute';
-                            this.top = this.mainContentHeight - this.sidebarHeight;
+                            this.top = mainContentBottom - this.sidebarHeight - this.sidebarOffset;
                         }
                         // If we're within normal scrolling range
                         else if (scrollY > this.sidebarOffset - this.initialTopOffset) {
                             this.position = 'fixed';
                             this.top = this.initialTopOffset;
                         }
-                        // If we're at the top
+                        // At the top of the page
                         else {
                             this.position = 'relative';
                             this.top = 0;
