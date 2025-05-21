@@ -4,12 +4,12 @@
         <div class="bg-white rounded-xl overflow-hidden shadow-md product-card" id="product1">
             <div class="md:flex">
                 <div class="md:w-2/5">
-                    <img src="/img/palmsugar.jpeg" alt="Granulated Coconut Sugar" class="w-full h-full object-cover">
+                    <img src="/img/palmsugar.jpeg" alt="Granulated Palm Sugar" class="w-full h-full object-cover">
                 </div>
                 <div class="p-6 md:w-3/5">
-                    <h3 class="text-2xl font-bold text-gray-900 mb-3">Granulated Coconut Sugar</h3>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-3">Granulated Palm Sugar</h3>
                     <p class="text-gray-600 mb-4">
-                        Our premium granulated coconut sugar is perfect for baking, cooking, and as a natural sweetener for beverages.
+                        Our premium granulated palm sugar is perfect for baking, cooking, and as a natural sweetener for beverages.
                     </p>
                     <ul class="space-y-2 mb-6">
                         <li class="flex items-center text-gray-700">

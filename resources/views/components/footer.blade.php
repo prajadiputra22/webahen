@@ -6,8 +6,10 @@
                 <div>
                     <h3 class="text-xl font-bold text-amber-500 mb-2">Sugar<span class="text-gray-950">ahen</span></h3>
                     <p class="text-gray-600 mb-6">
-                        Premium coconut and palm sugar exporter from Indonesia, providing high-quality products to
-                        customers worldwide.
+                        Premium coconut sugar and palm
+                        <br>sugar exporter from Indonesia,
+                        <br>providing high-quality products
+                        <br>to customers worldwide.
                     </p>
                     <div class="flex space-x-4">
                         <a href="https://www.facebook.com/profile.php?id=61575351231690&locale=id_ID"
@@ -40,7 +42,7 @@
                     <address class="text-gray-600 not-italic">
                         <p>Jl. Baros No. 122</p>
                         <p>Sukabumi City, West Java</p>
-                        <p>Indonesia   43166</p>
+                        <p>Indonesia 43166</p>
                     </address>
                 </div>
 
@@ -48,7 +50,7 @@
                 <div>
                     <h3 class="text-xl font-bold mb-2">Our Products</h3>
                     <ul class="text-gray-600 space-y-2">
-                        <li><a href="products" class="hover:text-gray-900">Granulated Coconut Sugar</a></li>
+                        <li><a href="products" class="hover:text-gray-900">Granulated Palm Sugar</a></li>
                         <li><a href="products" class="hover:text-gray-900">Coconut Sugar Blocks</a></li>
                         <li><a href="products" class="hover:text-gray-900">Liquid Coconut Sugar</a></li>
                         {{-- <li><a href="#" class="hover:text-gray-900">Organic Certified Sugar</a></li>

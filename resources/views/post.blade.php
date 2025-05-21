@@ -26,15 +26,17 @@
         .post-content h2 {
             font-size: 1.5rem;
             font-weight: 700;
-            margin-top: 2rem;
-            margin-bottom: 1rem;
+            display: inline-block;
+            text-align: left;
+            margin-bottom: 0.4rem
         }
 
         .post-content h3 {
             font-size: 1.25rem;
             font-weight: 600;
-            margin-top: 1.5rem;
-            margin-bottom: 0.75rem;
+            display: inline-block;
+            text-align: left;
+            margin-bottom: 0.2rem
         }
 
         .post-content ul,
@@ -117,7 +119,7 @@
                 left: 50%;
                 transform: translateX(-50%);
             }
-
+            
             .notification {
                 width: auto;
                 max-width: 300px;
@@ -208,7 +210,7 @@
                             </div>
 
                             <!-- Post Content -->
-                            <div class="post-content text-gray-800 mb-8">
+                            <div class="post-content text-gray-800 mb-14">
                                 {!! nl2br($post->body) !!}
                             </div>
                         </div>
@@ -265,7 +267,7 @@
             const container = document.getElementById('notification-container');
             container.style.display = 'block';
             container.classList.add('notification-show');
-
+            
             // Hide after 2 seconds
             setTimeout(() => {
                 container.classList.add('notification-hide');
@@ -282,7 +284,7 @@
             showNotification();
         }
 
-        // Alpine.js fungsi untuk sticky sidebar with bottom boundary
+                        // Alpine.js fungsi untuk sticky sidebar with bottom boundary
         function stickyScroll() {
             return {
                 position: 'relative',
@@ -294,7 +296,7 @@
                 footerOffset: 0,
                 windowHeight: 0,
                 initialTopOffset: 48, // Initial top offset in pixels (24px = top-6)
-                bottomMargin: 30, // No margin from bottom of content (align with the last line)
+                bottomMargin: 0, // No margin from bottom of content (align with the last line)
                 isMobile: window.innerWidth < 1024, // Check if mobile view (matches lg breakpoint)
 
                 init() {
@@ -326,7 +328,7 @@
                     this.mainContentHeight = mainContent.offsetHeight;
                     this.sidebarOffset = sidebar.offsetTop;
                     this.windowHeight = window.innerHeight;
-
+                    
                     // We still get footer position for reference but focus on the main content bottom alignment
                     if (footer) {
                         this.footerHeight = footer.offsetHeight;
@@ -337,7 +339,7 @@
                 // Helper to get offset from document top (since offsetTop is only relative to parent)
                 getOffsetTop(element) {
                     let offsetTop = 0;
-                    while (element) {
+                    while(element) {
                         offsetTop += element.offsetTop;
                         element = element.offsetParent;
                     }
@@ -356,7 +358,7 @@
                     const mainContentBottom = this.$refs.mainContent.offsetTop + this.mainContentHeight;
                     const viewportBottom = scrollY + this.windowHeight;
                     const sidebarBottom = scrollY + this.initialTopOffset + this.sidebarHeight;
-
+                    
                     // Calculate when sidebar should stop (to align with the last line of content)
                     // For aligning with main content bottom:
                     const stopPosition = mainContentBottom - this.sidebarHeight;
