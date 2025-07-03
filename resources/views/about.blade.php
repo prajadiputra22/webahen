@@ -51,6 +51,56 @@
         .video-container * {
             border-radius: inherit;
         }
+
+        /* Animation Classes */
+        .animate-slide-up {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s ease-out;
+        }
+
+        .animate-slide-up.animate-in {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .animate-slide-left {
+            opacity: 0;
+            transform: translateX(-50px);
+            transition: all 0.8s ease-out;
+        }
+
+        .animate-slide-left.animate-in {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .animate-slide-right {
+            opacity: 0;
+            transform: translateX(50px);
+            transition: all 0.8s ease-out;
+        }
+
+        .animate-slide-right.animate-in {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .animate-fade-in {
+            opacity: 0;
+            transition: opacity 1s ease-out;
+        }
+
+        .animate-fade-in.animate-in {
+            opacity: 1;
+        }
+
+        /* Staggered animation delays */
+        .animate-delay-100 { transition-delay: 0.1s; }
+        .animate-delay-200 { transition-delay: 0.2s; }
+        .animate-delay-300 { transition-delay: 0.3s; }
+        .animate-delay-400 { transition-delay: 0.4s; }
+        .animate-delay-500 { transition-delay: 0.5s; }
     </style>
 </head>
 
@@ -80,20 +130,22 @@
             <section class="py-10">
                 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div class="text-center bg-white">
-                        <h2 class="text-4xl font-bold text-gray-900">About <span class="text-amber-500">Sugarahen</span>
+                        <h2 class="text-4xl font-bold text-gray-900 animate-slide-up" data-animate>
+                            About <span class="text-amber-500">Sugarahen</span>
                         </h2>
-                        <p class="mt-4 text-gray-600 max-w-3xl mx-auto">
+                        <p class="mt-4 text-gray-600 max-w-3xl mx-auto animate-slide-up animate-delay-200" data-animate>
                             At Sugarahen, we specialize in premium coconut and palm sugar products crafted
                             from the finest Indonesian coconut and palm sap. Committed to sustainability, we deliver
                             natural sweetness to customers worldwide, tailored to meet diverse culinary and
                             industrial needs.
+                        </p>
                     </div>
                 </div>
             </section>
 
             <div class="relative border-b border-gray-150">
                 <!-- Video Background -->
-                <div class="relative max-w-4xl mx-auto mb-16">
+                <div class="relative max-w-4xl mx-auto mb-16 animate-fade-in animate-delay-300" data-animate>
                     <div class="rounded-3xl overflow-hidden" style="box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04); border-radius: 1.5rem;">
                         <video class="w-full aspect-video object-cover rounded-3xl" autoplay muted loop style="border-radius: 1.5rem;">
                             <source src="/video/pabrik.mp4" type="video/mp4">
@@ -109,10 +161,12 @@
             <section class="py-16 border-b border-gray-150" id="story">
                 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div class="text-center mb-8">
-                        <h2 class="text-4xl font-bold text-gray-900">Our <span class="text-amber-500">Story</span></h2>
+                        <h2 class="text-4xl font-bold text-gray-900 animate-slide-up" data-animate>
+                            Our <span class="text-amber-500">Story</span>
+                        </h2>
                     </div>
                     <div class="grid grid-cols-1 md:grid-cols-2 md:gap-7">
-                        <div class="flex items-center justify-center p-2">
+                        <div class="flex items-center justify-center p-2 animate-slide-up animate-up delay-200" data-animate>
                             <!-- Image container with adjusted display properties -->
                             <div class="rounded-xl overflow-hidden shadow-xl w-full">
                                 <img src="/img/ahen.png" alt="Coconut Sugar Production"
@@ -120,7 +174,7 @@
                             </div>
                         </div>
                         <div class="space-y-4 flex flex-col justify-center mt-6 md:mt-0">
-                            <p class="text-gray-700 text-lg leading-relaxed text-justify">
+                            <p class="text-gray-700 text-lg leading-relaxed text-justify animate-slide-up animate-delay-300" data-animate>
                                 <span class="font-bold">Sugarahen</span> is a leading exporter of premium organic sugar
                                 products from Indonesia.
                                 We partner with local farmers to ensure sustainable farming, ethical sourcing, and
@@ -128,7 +182,7 @@
                                 deliver natural taste and meet global standards, while also supporting environmental
                                 responsibility and local communities.
                             </p>
-                            <p class="text-gray-700 text-lg leading-relaxed text-justify">
+                            <p class="text-gray-700 text-lg leading-relaxed text-justify animate-slide-up animate-delay-400" data-animate>
                                 Our strong commitment to quality, sustainability, and fair trade has made us a trusted
                                 partner for food manufacturers, distributors, and retailers worldwide. With a focus on
                                 long-term collaboration, Sugar Ahen provides reliable, ethical sweetener solutions for
@@ -144,7 +198,7 @@
                 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-14">
                         <!-- Vision Section -->
-                        <div class="space-y-4 md:space-y-6">
+                        <div class="space-y-4 md:space-y-6 animate-slide-up animate-delay-100" data-animate>
                             <h2 class="text-3xl font-bold text-gray-900">Our <span class="text-amber-500">Vision</span>
                             </h2>
                             <p class="text-gray-700 leading-relaxed text-justify">
@@ -154,7 +208,7 @@
                             </p>
                         </div>
                         <!-- Mission Section -->
-                        <div class="space-y-4 md:space-y-6">
+                        <div class="space-y-4 md:space-y-6 animate-slide-up animate-delay-200" data-animate>
                             <h2 class="text-3xl font-bold text-gray-900">Our <span class="text-amber-500">Mission</span>
                             </h2>
                             <p class="text-gray-700 leading-relaxed text-justify">
@@ -166,7 +220,7 @@
                     </div>
 
                     <!-- Factory image - Mobile: between mission and vision, Desktop: below both -->
-                    <div class="mt-8 md:mt-12">
+                    <div class="mt-8 md:mt-12 animate-fade-in animate-delay-300" data-animate>
                         <!-- On mobile, this appears between Mission and Vision with reduced margins -->
                         <div class="md:hidden my-6">
                             <div class="rounded-xl overflow-hidden shadow-xl">
@@ -190,10 +244,12 @@
             <section class="py-12 md:py-16 bg-white">
                 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div class="text-center mb-8 md:mb-10">
-                        <h2 class="text-4xl font-bold text-gray-900">Our <span class="text-amber-500">Values</span></h2>
+                        <h2 class="text-4xl font-bold text-gray-900 animate-slide-up" data-animate>
+                            Our <span class="text-amber-500">Values</span>
+                        </h2>
                     </div>
                     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 mb-2">
-                        <div class="bg-white rounded-lg p-6 md:p-8 shadow-md value-card text-center">
+                        <div class="bg-white rounded-lg p-6 md:p-8 shadow-md value-card text-center animate-slide-up animate-delay-100" data-animate>
                             <div class="text-amber-500 text-4xl mb-4">
                                 <i class="fas fa-leaf"></i>
                             </div>
@@ -201,7 +257,7 @@
                             <p class="text-gray-700">We are committed to environmentally sustainable farming and
                                 production practices.</p>
                         </div>
-                        <div class="bg-white rounded-lg p-6 md:p-8 shadow-md value-card text-center">
+                        <div class="bg-white rounded-lg p-6 md:p-8 shadow-md value-card text-center animate-slide-up animate-delay-200" data-animate>
                             <div class="text-amber-500 text-4xl mb-4">
                                 <i class="fas fa-handshake"></i>
                             </div>
@@ -209,7 +265,7 @@
                             <p class="text-gray-700">We ensure fair compensation and good working conditions for all our
                                 farmers.</p>
                         </div>
-                        <div class="bg-white rounded-lg p-6 md:p-8 shadow-md value-card text-center">
+                        <div class="bg-white rounded-lg p-6 md:p-8 shadow-md value-card text-center animate-slide-up animate-delay-300" data-animate>
                             <div class="text-amber-500 text-4xl mb-4">
                                 <i class="fas fa-award"></i>
                             </div>
@@ -217,7 +273,7 @@
                             <p class="text-gray-700">We maintain the highest standards of quality in all our products.
                             </p>
                         </div>
-                        <div class="bg-white rounded-lg p-6 md:p-8 shadow-md value-card text-center">
+                        <div class="bg-white rounded-lg p-6 md:p-8 shadow-md value-card text-center animate-slide-up animate-delay-400" data-animate>
                             <div class="text-amber-500 text-4xl mb-4">
                                 <i class="fas fa-users"></i>
                             </div>
@@ -230,7 +286,7 @@
 
             <!-- CTA Section -->
             <section class="py-12 md:py-20 bg-amber-500">
-                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center animate-fade-in" data-animate>
                     <h2 class="text-3xl md:text-4xl font-bold text-white mb-4 md:mb-6">Want to Learn More?</h2>
                     <p class="md:text-xl text-white mb-6 md:mb-8 max-w-3xl mx-auto">Contact us today to discuss
                         how we can meet
@@ -253,6 +309,26 @@
     <script>
         // Set current year in footer
         document.getElementById('current-year').textContent = new Date().getFullYear();
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-in');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all elements with data-animate attribute
+        document.addEventListener('DOMContentLoaded', () => {
+            const animateElements = document.querySelectorAll('[data-animate]');
+            animateElements.forEach(el => observer.observe(el));
+        });
     </script>
 </body>
 

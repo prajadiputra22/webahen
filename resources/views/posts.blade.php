@@ -63,6 +63,56 @@
                 margin-right: auto;
             }
         }
+
+        /* Animation Classes */
+        .animate-slide-up {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s ease-out;
+        }
+
+        .animate-slide-up.animate-in {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .animate-slide-left {
+            opacity: 0;
+            transform: translateX(-50px);
+            transition: all 0.8s ease-out;
+        }
+
+        .animate-slide-left.animate-in {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .animate-slide-right {
+            opacity: 0;
+            transform: translateX(50px);
+            transition: all 0.8s ease-out;
+        }
+
+        .animate-slide-right.animate-in {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .animate-fade-in {
+            opacity: 0;
+            transition: opacity 1s ease-out;
+        }
+
+        .animate-fade-in.animate-in {
+            opacity: 1;
+        }
+
+        /* Staggered animation delays */
+        .animate-delay-100 { transition-delay: 0.1s; }
+        .animate-delay-200 { transition-delay: 0.2s; }
+        .animate-delay-300 { transition-delay: 0.3s; }
+        .animate-delay-400 { transition-delay: 0.4s; }
+        .animate-delay-500 { transition-delay: 0.5s; }
     </style>
 </head>
 
@@ -90,7 +140,7 @@
         <main class="bg-white py-10 mt-9">
             <div class="max-w-7xl mx-auto px-6 sm:px-6 lg:px-8 mobile-container">
                 <!-- Search Bar - Moved below the navbar with more spacing -->
-                <div class="py-6 border-b border-gray-150 mb-10">
+                <div class="py-6 border-b border-gray-150 mb-10 animate-fade-in" data-animate>
                     <div class="relative max-w-md mx-auto">
                         <input type="text" id="search-input" name="search" placeholder="Search..."
                             value="{{ request('search') }}"
@@ -105,8 +155,8 @@
                 <!-- Blog Posts Grid -->
                 <div id="posts-container" class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
                     @if ($posts->count())
-                        @foreach ($posts as $post)
-                            <div class="blog-card bg-white rounded-lg overflow-hidden shadow-md">
+                        @foreach ($posts as $index => $post)
+                            <div class="blog-card bg-white rounded-lg overflow-hidden shadow-md animate-slide-up animate-delay-{{ ($index % 3 + 1) * 100 }}" data-animate>
                                 <a href="/posts/{{ $post->slug }}">
                                     <div class="blog-image overflow-hidden h-48">
                                         @if ($post->image)
@@ -150,7 +200,7 @@
                             </div>
                         @endforeach
                     @else
-                        <div class="col-span-3 text-center py-12">
+                        <div class="col-span-3 text-center py-12 animate-fade-in" data-animate>
                             <h3 class="text-xl font-medium text-gray-900">No posts found</h3>
                             <p class="mt-2 text-gray-600">Try adjusting your search or filter criteria</p>
                         </div>
@@ -158,7 +208,7 @@
                 </div>
 
                 <!-- Pagination -->
-                <div id="pagination-container" class="mt-12">
+                <div id="pagination-container" class="mt-12 animate-fade-in animate-delay-300" data-animate>
                     {{ $posts->links() }}
                 </div>
             </div>
@@ -174,6 +224,26 @@
         // Set current year in footer
         document.getElementById('current-year').textContent = new Date().getFullYear();
 
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-in');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all elements with data-animate attribute
+        document.addEventListener('DOMContentLoaded', () => {
+            const animateElements = document.querySelectorAll('[data-animate]');
+            animateElements.forEach(el => observer.observe(el));
+        });
+
         // Real-time search functionality
         document.addEventListener('DOMContentLoaded', function() {
             const searchInput = document.getElementById('search-input');
@@ -183,7 +253,7 @@
             let debounceTimer;
 
             // Function to create a blog card HTML
-            function createBlogCard(post) {
+            function createBlogCard(post, index = 0) {
                 const createdAt = post.created_at ? new Date(post.created_at) : null;
                 const formattedDate = createdAt ? new Intl.DateTimeFormat('en', {
                     month: 'short',
@@ -205,8 +275,10 @@
                     }
                 }
 
+                const delayClass = `animate-delay-${((index % 3 + 1) * 100)}`;
+
                 return `
-                    <div class="blog-card bg-white rounded-lg overflow-hidden shadow-md">
+                    <div class="blog-card bg-white rounded-lg overflow-hidden shadow-md animate-slide-up ${delayClass}" data-animate>
                         <a href="/posts/${post.slug}">
                             <div class="blog-image overflow-hidden h-48">
                                 ${imageHtml}
@@ -214,7 +286,7 @@
                             <div class="px-6 py-5">
                                 <h3 class="text-xl font-bold mb-2 text-gray-900">${post.tittle}</h3>
                                 <p class="text-sm text-gray-600 mb-4">
-                                    ${post.author} ${createdAt ? '· ' + formattedDate : ''}
+                                    ${post.author} ${createdAt ? '- ' + formattedDate : ''}
                                 </p>
                                 <p class="text-gray-700 mb-4">${post.excerpt || ''}</p>
                                 <div class="flex justify-between items-center">
@@ -233,7 +305,7 @@
             // Function to create empty state HTML
             function createEmptyState() {
                 return `
-                    <div class="col-span-3 text-center py-12">
+                    <div class="col-span-3 text-center py-12 animate-fade-in" data-animate>
                         <h3 class="text-xl font-medium text-gray-900">No posts found</h3>
                         <p class="mt-2 text-gray-600">Try adjusting your search or filter criteria</p>
                     </div>
@@ -261,9 +333,13 @@
 
                         if (data.posts && data.posts.length > 0) {
                             // Add each post to the container
-                            data.posts.forEach(post => {
-                                postsContainer.innerHTML += createBlogCard(post);
+                            data.posts.forEach((post, index) => {
+                                postsContainer.innerHTML += createBlogCard(post, index);
                             });
+
+                            // Re-observe new elements for animations
+                            const newAnimateElements = postsContainer.querySelectorAll('[data-animate]');
+                            newAnimateElements.forEach(el => observer.observe(el));
 
                             // Update pagination if provided
                             if (data.pagination) {
@@ -274,6 +350,13 @@
                         } else {
                             // Show empty state
                             postsContainer.innerHTML = createEmptyState();
+                            
+                            // Re-observe empty state for animations
+                            const emptyStateElement = postsContainer.querySelector('[data-animate]');
+                            if (emptyStateElement) {
+                                observer.observe(emptyStateElement);
+                            }
+                            
                             paginationContainer.innerHTML = '';
                         }
                     })

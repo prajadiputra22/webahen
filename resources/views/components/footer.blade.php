@@ -3,7 +3,7 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                 <!-- Company Info -->
-                <div>
+                <div class="animate-slide-up animate-delay-100" data-animate>
                     <h3 class="text-xl font-bold text-amber-500 mb-2">Sugar<span class="text-gray-950">ahen</span></h3>
                     <p class="text-gray-600 mb-6">
                         Premium coconut sugar and palm
@@ -27,7 +27,7 @@
                 </div>
 
                 <!-- Factory -->
-                <div>
+                <div class="animate-slide-up animate-delay-200" data-animate>
                     <h3 class="text-xl font-bold mb-2">Factory</h3>
                     <address class="text-gray-600 not-italic">
                         <p>Jl. Awi Lega</p>
@@ -37,7 +37,7 @@
                 </div>
 
                 <!-- Head Office -->
-                <div>
+                <div class="animate-slide-up animate-delay-300" data-animate>
                     <h3 class="text-xl font-bold mb-2">Head Office</h3>
                     <address class="text-gray-600 not-italic">
                         <p>Jl. Baros No. 122</p>
@@ -47,7 +47,7 @@
                 </div>
 
                 <!-- Products -->
-                <div>
+                <div class="animate-slide-up animate-delay-400" data-animate>
                     <h3 class="text-xl font-bold mb-2">Our Products</h3>
                     <ul class="text-gray-600 space-y-2">
                         <li><a href="products" class="hover:text-gray-900">Granulated Palm Sugar</a></li>
@@ -59,7 +59,7 @@
                 </div>
             </div>
 
-            <div class="border-t border-gray-200 mt-4 pt-6 text-center text-gray-600">
+            <div class="border-t border-gray-200 mt-4 pt-6 text-center text-gray-600 animate-fade-in animate-delay-500" data-animate>
                 <p>&copy; <span id="current-year">2025</span> Sugar Ahen. All rights reserved.</p>
             </div>
         </div>

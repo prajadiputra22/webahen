@@ -18,7 +18,7 @@ class AdminAuthController extends Controller
     public function login(Request $request)
     {
         $credentials = $request->validate([
-            'email' => ['required', 'email'],
+            'username' => ['required', 'string'],
             'password' => ['required'],
         ]);
 
@@ -28,8 +28,8 @@ class AdminAuthController extends Controller
         }
 
         return back()->withErrors([
-            'email' => 'The provided credentials do not match our records.',
-        ])->onlyInput('email');
+            'username' => 'Incorrect username or password.',
+        ])->onlyInput('username');
     }
 
     public function showRegistrationForm()
@@ -40,12 +40,12 @@ class AdminAuthController extends Controller
     public function register(Request $request)
     {
         $request->validate([
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:admin'],
+            'username' => ['required', 'string', 'max:255', 'unique:admin'],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ]);
 
         $admin = Admin::create([
-            'email' => $request->email,
+            'username' => $request->username,
             'password' => Hash::make($request->password),
         ]);
 

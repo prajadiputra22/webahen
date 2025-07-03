@@ -40,6 +40,56 @@
         .hero-section {
             padding-top: 4rem;
         }
+
+        /* Animation Classes */
+        .animate-slide-up {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s ease-out;
+        }
+
+        .animate-slide-up.animate-in {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .animate-slide-left {
+            opacity: 0;
+            transform: translateX(-50px);
+            transition: all 0.8s ease-out;
+        }
+
+        .animate-slide-left.animate-in {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .animate-slide-right {
+            opacity: 0;
+            transform: translateX(50px);
+            transition: all 0.8s ease-out;
+        }
+
+        .animate-slide-right.animate-in {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .animate-fade-in {
+            opacity: 0;
+            transition: opacity 1s ease-out;
+        }
+
+        .animate-fade-in.animate-in {
+            opacity: 1;
+        }
+
+        /* Staggered animation delays */
+        .animate-delay-100 { transition-delay: 0.1s; }
+        .animate-delay-200 { transition-delay: 0.2s; }
+        .animate-delay-300 { transition-delay: 0.3s; }
+        .animate-delay-400 { transition-delay: 0.4s; }
+        .animate-delay-500 { transition-delay: 0.5s; }
     </style>
 </head>
 
@@ -75,15 +125,16 @@
             <section id="about" class="py-16 border-b border-gray-150">
                 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div class="text-center mb-8">
-                        <h2 class="text-4xl font-bold text-gray-900">About <span class="text-amber-500">Sugarahen</span>
+                        <h2 class="text-4xl font-bold text-gray-900 animate-slide-up" data-animate>
+                            About <span class="text-amber-500">Sugarahen</span>
                         </h2>
                     </div>
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-14 items-center">
-                        <div class="w-30 h-30 rounded-xl overflow-hidden shadow-xl">
+                        <div class="w-30 h-30 rounded-xl overflow-hidden shadow-xl animate-slide-up animate-delay-200" data-animate>
                             <img src="/img/ahen.png" alt="Coconut Sugar Production" class="w-30 h-30 object-contain">
                         </div>
 
-                        <div class="space-y-8">
+                        <div class="space-y-8 animate-slide-up animate-delay-300" data-animate>
                             <p class="text-gray-700 text-lg leading-relaxed text-justify">
                                 <span class="font-bold">Sugarahen</span> is a leading exporter of premium coconut sugar
                                 products from Indonesia.
@@ -94,7 +145,7 @@
                                 Our commitment to quality, sustainability, and fair trade has made us a trusted
                                 partner for food manufacturers, distributors, and retailers worldwide.
                             </p>
-                            <div class="text-center mt-10">
+                            <div class="text-center mt-10 animate-fade-in animate-delay-100" data-animate>
                                 <a href="/about#story"
                                     class="inline-flex items-center px-8 py-3 bg-amber-500 hover:bg-amber-600 text-white font-medium rounded-full transition-colors text-lg">
                                     Learn More About Us
@@ -109,9 +160,11 @@
             <!-- Products Section - Updated to make entire cards clickable -->
             <section id="products" class="py-14 bg-white text-black">
                 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div class="text-center mb-12">
-                        <h2 class="text-4xl font-bold">Our <span class="text-amber-500">Products</span></h2>
-                        <p class="mt-4 text-gray-600 max-w-2xl mx-auto">
+                    <div class="text-center mb-12 py-12">
+                        <h2 class="text-4xl font-bold animate-slide-up" data-animate>
+                            Our <span class="text-amber-500">Products</span>
+                        </h2>
+                        <p class="mt-4 text-gray-600 max-w-2xl mx-auto animate-slide-up animate-delay-200" data-animate>
                             We offer a wide range of high-quality coconut sugar products to meet the diverse
                             needs of our customers around the world.
                         </p>
@@ -119,7 +172,7 @@
 
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                         <!-- Product 1 - Entire card is now clickable -->
-                        <a href="/products" class="block bg-white rounded-lg overflow-hidden shadow-md product-card">
+                        <a href="/products" class="block bg-white rounded-lg overflow-hidden shadow-md product-card animate-slide-up animate-delay-200" data-animate>
                             <div class="h-64 overflow-hidden">
                                 <img src="/img/palmsugar.jpeg" alt="Granulated Coconut Sugar"
                                     class="w-full h-full object-contain product-image">
@@ -130,15 +183,11 @@
                                     Made from high quality genuine Indonesian palm sap, it produces natural sugar that
                                     is good for the body.
                                 </p>
-                                {{-- <div class="inline-flex items-center text-amber-500 font-medium">
-                  <span>View Details</span>
-                  <i class="fas fa-chevron-right ml-2"></i>
-                </div> --}}
                             </div>
                         </a>
 
                         <!-- Product 2 - Entire card is now clickable -->
-                        <a href="/products" class="block bg-white rounded-lg overflow-hidden shadow-md product-card">
+                        <a href="/products" class="block bg-white rounded-lg overflow-hidden shadow-md product-card animate-slide-up animate-delay-300" data-animate>
                             <div class="h-64 overflow-hidden">
                                 <img src="/img/coconutsugar.jpeg" alt="Coconut Sugar Blocks"
                                     class="w-full h-full object-contain product-image">
@@ -149,15 +198,11 @@
                                     Traditional coconut sugar blocks with intense flavor, ideal for traditional cooking
                                     and specialty dishes.
                                 </p>
-                                {{-- <div class="inline-flex items-center text-amber-500 font-medium">
-                  <span>View Details</span>
-                  <i class="fas fa-chevron-right ml-2"></i>
-                </div> --}}
                             </div>
                         </a>
 
                         <!-- Product 3 - Entire card is now clickable -->
-                        <a href="/products" class="block bg-white rounded-lg overflow-hidden shadow-md product-card">
+                        <a href="/products" class="block bg-white rounded-lg overflow-hidden shadow-md product-card animate-slide-up animate-delay-400" data-animate>
                             <div class="h-64 overflow-hidden">
                                 <img src="/img/liquidsugar.jpeg" alt="Liquid Palm Sugar"
                                     class="w-full h-full object-contain product-image">
@@ -168,15 +213,11 @@
                                     Our liquid palm sugar syrup is a versatile sweetener with a rich caramel flavor,
                                     perfect for drizzling.
                                 </p>
-                                {{-- <div class="inline-flex items-center text-amber-500 font-medium">
-                  <span>View Details</span>
-                  <i class="fas fa-chevron-right ml-2"></i>
-                </div> --}}
                             </div>
                         </a>
                     </div>
 
-                    <div class="text-center mt-10">
+                    <div class="text-center py-12 animate-fade-in animate-delay-100" data-animate>
                         <a href="/products"
                             class="inline-flex items-center px-6 py-3 bg-amber-500 hover:bg-amber-600 text-white font-medium rounded-full transition-colors">
                             View Details Products
@@ -197,6 +238,26 @@
     <script>
         // Set current year in footer
         document.getElementById('current-year').textContent = new Date().getFullYear();
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-in');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all elements with data-animate attribute
+        document.addEventListener('DOMContentLoaded', () => {
+            const animateElements = document.querySelectorAll('[data-animate]');
+            animateElements.forEach(el => observer.observe(el));
+        });
     </script>
 </body>
 

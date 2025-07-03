@@ -1,7 +1,8 @@
 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-10">
     <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
         <!-- Product 1 -->
-        <div class="bg-white rounded-xl overflow-hidden shadow-md product-card" id="product1">
+        <div class="bg-white rounded-xl overflow-hidden shadow-md product-card animate-slide-up animate-delay-100"
+            id="product1" data-animate>
             <div class="md:flex">
                 <div class="md:w-2/5">
                     <img src="/img/palmsugar.jpeg" alt="Granulated Palm Sugar" class="w-full h-full object-cover">
@@ -9,7 +10,8 @@
                 <div class="p-6 md:w-3/5">
                     <h3 class="text-2xl font-bold text-gray-900 mb-3">Granulated Palm Sugar</h3>
                     <p class="text-gray-600 mb-4">
-                        Our premium granulated palm sugar is perfect for baking, cooking, and as a natural sweetener for beverages.
+                        Our premium granulated palm sugar is perfect for baking, cooking, and as a natural sweetener for
+                        beverages.
                     </p>
                     <ul class="space-y-2 mb-6">
                         <li class="flex items-center text-gray-700">
@@ -36,9 +38,10 @@
                 </div>
             </div>
         </div>
-        
+
         <!-- Product 2 -->
-        <div class="bg-white rounded-xl overflow-hidden shadow-md product-card" id="product2">
+        <div class="bg-white rounded-xl overflow-hidden shadow-md product-card animate-slide-up animate-delay-200"
+            id="product2" data-animate>
             <div class="md:flex">
                 <div class="md:w-2/5">
                     <img src="/img/coconutsugar.jpeg" alt="Coconut Sugar Blocks" class="w-full h-full object-cover">
@@ -46,7 +49,8 @@
                 <div class="p-6 md:w-3/5">
                     <h3 class="text-2xl font-bold text-gray-900 mb-3">Coconut Sugar Blocks</h3>
                     <p class="text-gray-600 mb-4">
-                        Traditional coconut sugar blocks with intense flavor, ideal for traditional cooking and specialty dishes.
+                        Traditional coconut sugar blocks with intense flavor, ideal for traditional cooking and
+                        specialty dishes.
                     </p>
                     <ul class="space-y-2 mb-6">
                         <li class="flex items-center text-gray-700">
@@ -73,9 +77,10 @@
                 </div>
             </div>
         </div>
-        
+
         <!-- Product 3 -->
-        <div class="bg-white rounded-xl overflow-hidden shadow-md product-card" id="product3">
+        <div class="bg-white rounded-xl overflow-hidden shadow-md product-card animate-slide-up animate-delay-300"
+            id="product3" data-animate>
             <div class="md:flex">
                 <div class="md:w-2/5">
                     <img src="/img/liquidsugar.jpeg" alt="Liquid Coconut Sugar" class="w-full h-full object-cover">
@@ -83,7 +88,8 @@
                 <div class="p-6 md:w-3/5">
                     <h3 class="text-2xl font-bold text-gray-900 mb-3">Liquid Palm Sugar</h3>
                     <p class="text-gray-600 mb-4">
-                        Our liquid palm sugar syrup is a versatile sweetener with a rich caramel flavor, perfect for drizzling.
+                        Our liquid palm sugar syrup is a versatile sweetener with a rich caramel flavor, perfect for
+                        drizzling.
                     </p>
                     <ul class="space-y-2 mb-6">
                         <li class="flex items-center text-gray-700">
@@ -110,17 +116,20 @@
                 </div>
             </div>
         </div>
-        
+
         <!-- Product 4 -->
-        <div class="bg-white rounded-xl overflow-hidden shadow-md product-card" id="product4">
+        <div class="bg-white rounded-xl overflow-hidden shadow-md product-card animate-slide-up animate-delay-400"
+            id="product4" data-animate>
             <div class="md:flex">
                 <div class="md:w-2/5">
-                    <img src="/img/certificate/certif.jpg" alt="Organic Certified Sugar" class="w-full h-full object-cover">
+                    <img src="/img/certificate/certif.jpg" alt="Organic Certified Sugar"
+                        class="w-full h-full object-cover">
                 </div>
                 <div class="p-6 md:w-3/5">
                     <h3 class="text-2xl font-bold text-gray-900 mb-3">100% Organic Sugar</h3>
                     <p class="text-gray-600 mb-4">
-                        Our certified organic coconut sugar meets the highest standards for organic production and processing.
+                        Our certified organic coconut sugar meets the highest standards for organic production and
+                        processing.
                     </p>
                     <ul class="space-y-2 mb-6">
                         <li class="flex items-center text-gray-700">

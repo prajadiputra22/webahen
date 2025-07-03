@@ -40,6 +40,56 @@
         .faq-item.active .fa-chevron-down {
             transform: rotate(180deg);
         }
+
+        /* Animation Classes */
+        .animate-slide-up {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s ease-out;
+        }
+
+        .animate-slide-up.animate-in {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .animate-slide-left {
+            opacity: 0;
+            transform: translateX(-50px);
+            transition: all 0.8s ease-out;
+        }
+
+        .animate-slide-left.animate-in {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .animate-slide-right {
+            opacity: 0;
+            transform: translateX(50px);
+            transition: all 0.8s ease-out;
+        }
+
+        .animate-slide-right.animate-in {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .animate-fade-in {
+            opacity: 0;
+            transition: opacity 1s ease-out;
+        }
+
+        .animate-fade-in.animate-in {
+            opacity: 1;
+        }
+
+        /* Staggered animation delays */
+        .animate-delay-100 { transition-delay: 0.1s; }
+        .animate-delay-200 { transition-delay: 0.2s; }
+        .animate-delay-300 { transition-delay: 0.3s; }
+        .animate-delay-400 { transition-delay: 0.4s; }
+        .animate-delay-500 { transition-delay: 0.5s; }
     </style>
     <meta name="csrf-token" content="{{ csrf_token() }}">
 </head>
@@ -69,9 +119,10 @@
             <section class="py-16">
                 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div class="text-center">
-                        <h2 class="text-4xl font-bold text-gray-900">Contact <span
-                                class="text-amber-500">Sugarahen</span></h2>
-                        <p class="mt-4 text-gray-600 max-w-3xl mx-auto">
+                        <h2 class="text-4xl font-bold text-gray-900 animate-slide-up" data-animate>
+                            Contact <span class="text-amber-500">Sugarahen</span>
+                        </h2>
+                        <p class="mt-4 text-gray-600 max-w-3xl mx-auto animate-slide-up animate-delay-200" data-animate>
                             Get in touch with Sugarahen for premium coconut and palm sugar products
                             tailored to your global needs.We proudly offer sustainably sourced sugar
                             made from the finest Indonesian coconut and palm sap.
@@ -83,7 +134,7 @@
             <section class=" py-5 border-b border-gray-150">
                 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12">
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                        <div class="bg-white rounded-xl p-8 text-center shadow-md contact-card">
+                        <div class="bg-white rounded-xl p-8 text-center shadow-md contact-card animate-slide-up animate-delay-100" data-animate>
                             <div
                                 class="w-16 h-16 bg-amber-100 rounded-full flex items-center justify-center mx-auto mb-6">
                                 <i class="fas fa-envelope text-amber-500 text-2xl"></i>
@@ -91,7 +142,7 @@
                             <h3 class="text-xl font-bold text-gray-900 mb-3">Email Address</h3>
                             <p class="text-gray-600">ahensugar75@gmail.com</p>
                         </div>
-                        <div class="bg-white rounded-xl p-8 text-center shadow-md contact-card">
+                        <div class="bg-white rounded-xl p-8 text-center shadow-md contact-card animate-slide-up animate-delay-200" data-animate>
                             <div
                                 class="w-16 h-16 bg-amber-100 rounded-full flex items-center justify-center mx-auto mb-6">
                                 <i class="fas fa-map-marker-alt text-amber-500 text-2xl"></i>
@@ -101,7 +152,7 @@
                             <p class="text-gray-600">Sukabumi City, West Java</p>
                             <p class="text-gray-600">Indonesia 43166</p>
                         </div>
-                        <div class="bg-white rounded-xl p-8 text-center shadow-md contact-card">
+                        <div class="bg-white rounded-xl p-8 text-center shadow-md contact-card animate-slide-up animate-delay-300" data-animate>
                             <div
                                 class="w-16 h-16 bg-amber-100 rounded-full flex items-center justify-center mx-auto mb-6">
                                 <i class="fas fa-phone-alt text-amber-500 text-2xl"></i>
@@ -117,7 +168,7 @@
             <section class="py-16 border-b border-gray-150" id="contact-form-section">
                 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 ">
                     <div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
-                        <div class="bg-white rounded-xl p-8 shadow-md">
+                        <div class="bg-white rounded-xl p-8 shadow-md animate-slide-up animate-delay-100" data-animate>
                             <div class="mb-8">
                                 <h2 class="text-3xl font-bold text-gray-900 mb-4">Send Us a <span
                                         class="text-amber-500">Message</span></h2>
@@ -204,7 +255,7 @@
                                 </button>
                             </form>
                         </div>
-                        <div>
+                        <div class="animate-slide-up animate-delay-200" data-animate>
                             <div class="bg-white rounded-xl p-6 shadow-md mb-6">
                                 <h3 class="text-xl font-bold text-gray-900 mb-4">Business Hours</h3>
                                 <ul class="space-y-3">
@@ -256,12 +307,13 @@
             }">
                 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div class="text-center mb-14">
-                        <h2 class="text-4xl font-bold text-gray-900">Frequently Asked <span
-                                class="text-amber-500">Questions</span></h2>
+                        <h2 class="text-4xl font-bold text-gray-900 animate-slide-up" data-animate>
+                            Frequently Asked <span class="text-amber-500">Questions</span>
+                        </h2>
                     </div>
                     <div class="max-w-3xl mx-auto">
                         <div class="space-y-4">
-                            <div class="bg-white rounded-xl overflow-hidden shadow-md faq-item"
+                            <div class="bg-white rounded-xl overflow-hidden shadow-md faq-item animate-slide-up animate-delay-100" data-animate
                                 :class="{ 'active': activeItem === 0 }" @click="toggleItem(0)">
                                 <div class="p-6 flex justify-between items-center cursor-pointer">
                                     <h3 class="text-lg font-bold text-gray-900">What is the minimum order quantity?
@@ -277,7 +329,7 @@
                                     </p>
                                 </div>
                             </div>
-                            <div class="bg-white rounded-xl overflow-hidden shadow-md faq-item"
+                            <div class="bg-white rounded-xl overflow-hidden shadow-md faq-item animate-slide-up animate-delay-200" data-animate
                                 :class="{ 'active': activeItem === 1 }" @click="toggleItem(1)">
                                 <div class="p-6 flex justify-between items-center cursor-pointer">
                                     <h3 class="text-lg font-bold text-gray-900">Do you offer samples before ordering?
@@ -292,7 +344,7 @@
                                     </p>
                                 </div>
                             </div>
-                            <div class="bg-white rounded-xl overflow-hidden shadow-md faq-item"
+                            <div class="bg-white rounded-xl overflow-hidden shadow-md faq-item animate-slide-up animate-delay-300" data-animate
                                 :class="{ 'active': activeItem === 2 }" @click="toggleItem(2)">
                                 <div class="p-6 flex justify-between items-center cursor-pointer">
                                     <h3 class="text-lg font-bold text-gray-900">What are your shipping terms?</h3>
@@ -307,7 +359,7 @@
                                     </p>
                                 </div>
                             </div>
-                            <div class="bg-white rounded-xl overflow-hidden shadow-md faq-item"
+                            <div class="bg-white rounded-xl overflow-hidden shadow-md faq-item animate-slide-up animate-delay-400" data-animate
                                 :class="{ 'active': activeItem === 3 }" @click="toggleItem(3)">
                                 <div class="p-6 flex justify-between items-center cursor-pointer">
                                     <h3 class="text-lg font-bold text-gray-900">Do you offer private labeling?</h3>
@@ -336,6 +388,26 @@
     <script>
         // Set current year in footer
         document.getElementById('current-year').textContent = new Date().getFullYear();
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-in');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all elements with data-animate attribute
+        document.addEventListener('DOMContentLoaded', () => {
+            const animateElements = document.querySelectorAll('[data-animate]');
+            animateElements.forEach(el => observer.observe(el));
+        });
 
         // AJAX form submission
         document.getElementById('contactForm').addEventListener('submit', function(e) {
